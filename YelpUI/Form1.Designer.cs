@@ -1,4 +1,3 @@
-﻿
 namespace YelpUI
 {
     partial class Form1
@@ -29,10 +28,14 @@ namespace YelpUI
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< YelpUI/Form1.Designer.cs
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+=======
 <<<<<<< HEAD
 =======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabBusiness = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -49,8 +52,11 @@ namespace YelpUI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.checkBoxLateNight = new System.Windows.Forms.CheckBox();
             this.checkBoxDessert = new System.Windows.Forms.CheckBox();
@@ -74,6 +80,12 @@ namespace YelpUI
             this.checkboxWheelChair = new System.Windows.Forms.CheckBox();
             this.checkboxReservations = new System.Windows.Forms.CheckBox();
             this.checkBoxCreditCard = new System.Windows.Forms.CheckBox();
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.dgvSearchResults = new System.Windows.Forms.DataGridView();
+            this.btnTip = new System.Windows.Forms.Button();
+            this.btnSearchBusiness = new System.Windows.Forms.Button();
+            this.tabUser = new System.Windows.Forms.TabPage();
+=======
 >>>>>>> Refactored several elements in the code
             this.dgvSearchResults = new System.Windows.Forms.DataGridView();
             this.btnTip = new System.Windows.Forms.Button();
@@ -85,11 +97,15 @@ namespace YelpUI
 =======
             this.tabUser = new System.Windows.Forms.TabPage();
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dgvLatestTipsOfFriends = new System.Windows.Forms.DataGridView();
             this.FriendList = new System.Windows.Forms.GroupBox();
             this.dgvFriendsList = new System.Windows.Forms.DataGridView();
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtboxlatitude = new System.Windows.Forms.TextBox();
             this.txtboxlongitude = new System.Windows.Forms.TextBox();
@@ -116,6 +132,11 @@ namespace YelpUI
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lstUsers = new System.Windows.Forms.ListBox();
             this.txtboxCurrentUser = new System.Windows.Forms.TextBox();
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.tabMap = new System.Windows.Forms.TabPage();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.mapUserControl1 = new YelpUI.MapUserControl();
+=======
 <<<<<<< HEAD
             this.tabPage3 = new System.Windows.Forms.TabPage();
 <<<<<<< HEAD
@@ -127,6 +148,7 @@ namespace YelpUI
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.mapUserControl1 = new YelpUI.MapUserControl();
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.tabControl1.SuspendLayout();
             this.tabBusiness.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -139,10 +161,13 @@ namespace YelpUI
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
             this.tabPage1.SuspendLayout();
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -152,7 +177,10 @@ namespace YelpUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvLatestTipsOfFriends)).BeginInit();
             this.FriendList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFriendsList)).BeginInit();
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabMap.SuspendLayout();
@@ -165,6 +193,11 @@ namespace YelpUI
             this.tabControl1.Controls.Add(this.tabMap);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1197, 653);
+=======
 <<<<<<< HEAD
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
@@ -175,10 +208,13 @@ namespace YelpUI
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1197, 653);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.tabControl1.TabIndex = 0;
             // 
             // tabBusiness
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.tabPage2.Controls.Add(this.splitContainer1);
 <<<<<<< HEAD
@@ -197,6 +233,7 @@ namespace YelpUI
             this.tabPage2.Text = "Business Search";
             this.tabPage2.UseVisualStyleBackColor = true;
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.tabBusiness.Controls.Add(this.splitContainer1);
             this.tabBusiness.Location = new System.Drawing.Point(4, 25);
             this.tabBusiness.Name = "tabBusiness";
@@ -205,17 +242,24 @@ namespace YelpUI
             this.tabBusiness.TabIndex = 1;
             this.tabBusiness.Text = "Business Search";
             this.tabBusiness.UseVisualStyleBackColor = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.Designer.cs
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+=======
 <<<<<<< HEAD
             this.splitContainer1.Location = new System.Drawing.Point(3, 4);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 =======
             this.splitContainer1.Location = new System.Drawing.Point(3, 3);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -226,6 +270,11 @@ namespace YelpUI
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(10);
+            this.splitContainer1.Size = new System.Drawing.Size(1183, 618);
+            this.splitContainer1.SplitterDistance = 227;
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
@@ -239,6 +288,7 @@ namespace YelpUI
             this.splitContainer1.Size = new System.Drawing.Size(1183, 618);
             this.splitContainer1.SplitterDistance = 227;
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox2
@@ -247,6 +297,11 @@ namespace YelpUI
             this.groupBox2.Controls.Add(this.btnRemove);
             this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Controls.Add(this.lstCategories);
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.groupBox2.Location = new System.Drawing.Point(3, 340);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(213, 273);
+=======
 <<<<<<< HEAD
             this.groupBox2.Location = new System.Drawing.Point(14, 428);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -258,6 +313,7 @@ namespace YelpUI
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(213, 273);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Business Categories";
@@ -265,6 +321,8 @@ namespace YelpUI
             // lstFilteringCategories
             // 
             this.lstFilteringCategories.FormattingEnabled = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.lstFilteringCategories.ItemHeight = 20;
             this.lstFilteringCategories.Location = new System.Drawing.Point(11, 242);
@@ -272,15 +330,24 @@ namespace YelpUI
             this.lstFilteringCategories.Name = "lstFilteringCategories";
             this.lstFilteringCategories.Size = new System.Drawing.Size(224, 84);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstFilteringCategories.ItemHeight = 16;
             this.lstFilteringCategories.Location = new System.Drawing.Point(6, 194);
             this.lstFilteringCategories.Name = "lstFilteringCategories";
             this.lstFilteringCategories.Size = new System.Drawing.Size(200, 68);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstFilteringCategories.TabIndex = 7;
             // 
             // btnRemove
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.btnRemove.Location = new System.Drawing.Point(114, 164);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(92, 23);
+=======
 <<<<<<< HEAD
             this.btnRemove.Location = new System.Drawing.Point(133, 205);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -291,6 +358,7 @@ namespace YelpUI
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(92, 23);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -298,6 +366,11 @@ namespace YelpUI
             // 
             // btnAdd
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.btnAdd.Location = new System.Drawing.Point(6, 164);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(92, 23);
+=======
 <<<<<<< HEAD
             this.btnAdd.Location = new System.Drawing.Point(11, 205);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -308,6 +381,7 @@ namespace YelpUI
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 23);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -316,6 +390,8 @@ namespace YelpUI
             // lstCategories
             // 
             this.lstCategories.FormattingEnabled = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.lstCategories.ItemHeight = 20;
             this.lstCategories.Location = new System.Drawing.Point(11, 34);
@@ -323,11 +399,15 @@ namespace YelpUI
             this.lstCategories.Name = "lstCategories";
             this.lstCategories.Size = new System.Drawing.Size(224, 164);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstCategories.ItemHeight = 16;
             this.lstCategories.Location = new System.Drawing.Point(6, 27);
             this.lstCategories.Name = "lstCategories";
             this.lstCategories.Size = new System.Drawing.Size(200, 132);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstCategories.TabIndex = 4;
             // 
             // groupBox1
@@ -339,6 +419,11 @@ namespace YelpUI
             this.groupBox1.Controls.Add(this.lstState);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.groupBox1.Location = new System.Drawing.Point(0, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(216, 334);
+=======
 <<<<<<< HEAD
             this.groupBox1.Location = new System.Drawing.Point(14, 10);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -350,6 +435,7 @@ namespace YelpUI
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(216, 334);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Business Location";
@@ -357,6 +443,8 @@ namespace YelpUI
             // lstZipcode
             // 
             this.lstZipcode.FormattingEnabled = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.lstZipcode.ItemHeight = 20;
             this.lstZipcode.Location = new System.Drawing.Point(11, 266);
@@ -364,17 +452,26 @@ namespace YelpUI
             this.lstZipcode.Name = "lstZipcode";
             this.lstZipcode.Size = new System.Drawing.Size(224, 124);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstZipcode.ItemHeight = 16;
             this.lstZipcode.Location = new System.Drawing.Point(10, 213);
             this.lstZipcode.Name = "lstZipcode";
             this.lstZipcode.Size = new System.Drawing.Size(200, 100);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstZipcode.TabIndex = 5;
             this.lstZipcode.SelectedIndexChanged += new System.EventHandler(this.lstZipcode_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label3.Location = new System.Drawing.Point(7, 189);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 17);
+=======
 <<<<<<< HEAD
             this.label3.Location = new System.Drawing.Point(8, 236);
             this.label3.Name = "label3";
@@ -384,12 +481,15 @@ namespace YelpUI
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label3.TabIndex = 4;
             this.label3.Text = "Zipcode:";
             // 
             // lstCity
             // 
             this.lstCity.FormattingEnabled = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.lstCity.ItemHeight = 20;
             this.lstCity.Location = new System.Drawing.Point(11, 104);
@@ -397,17 +497,26 @@ namespace YelpUI
             this.lstCity.Name = "lstCity";
             this.lstCity.Size = new System.Drawing.Size(224, 124);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstCity.ItemHeight = 16;
             this.lstCity.Location = new System.Drawing.Point(10, 83);
             this.lstCity.Name = "lstCity";
             this.lstCity.Size = new System.Drawing.Size(200, 100);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstCity.TabIndex = 3;
             this.lstCity.SelectedIndexChanged += new System.EventHandler(this.lstCity_SelectedIndexChanged);
             // 
             // lstState
             // 
             this.lstState.FormattingEnabled = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.lstState.Location = new System.Drawing.Point(110, 26);
+            this.lstState.Name = "lstState";
+            this.lstState.Size = new System.Drawing.Size(100, 24);
+=======
 <<<<<<< HEAD
             this.lstState.Location = new System.Drawing.Point(124, 32);
             this.lstState.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -418,12 +527,18 @@ namespace YelpUI
             this.lstState.Name = "lstState";
             this.lstState.Size = new System.Drawing.Size(100, 24);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstState.TabIndex = 2;
             this.lstState.SelectedIndexChanged += new System.EventHandler(this.lstState_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label2.Location = new System.Drawing.Point(7, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 17);
+=======
 <<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(8, 71);
             this.label2.Name = "label2";
@@ -433,12 +548,18 @@ namespace YelpUI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label2.TabIndex = 1;
             this.label2.Text = "City:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label1.Location = new System.Drawing.Point(7, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 17);
+=======
 <<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(8, 38);
             this.label1.Name = "label1";
@@ -448,6 +569,7 @@ namespace YelpUI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label1.TabIndex = 0;
             this.label1.Text = "State:";
             // 
@@ -455,27 +577,38 @@ namespace YelpUI
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.splitContainer2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 =======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer2.Panel1
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox7);
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox6);
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox5);
+=======
 <<<<<<< HEAD
 =======
             this.splitContainer2.Panel1.Controls.Add(this.groupBox7);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox6);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox5);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.splitContainer2.Panel1.Controls.Add(this.dgvSearchResults);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.btnTip);
             this.splitContainer2.Panel2.Controls.Add(this.btnSearchBusiness);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.splitContainer2.Size = new System.Drawing.Size(1113, 775);
             this.splitContainer2.SplitterDistance = 731;
@@ -490,6 +623,7 @@ namespace YelpUI
             this.dgvSearchResults.Location = new System.Drawing.Point(0, 0);
             this.dgvSearchResults.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.splitContainer2.Size = new System.Drawing.Size(952, 618);
             this.splitContainer2.SplitterDistance = 582;
             this.splitContainer2.TabIndex = 0;
@@ -775,11 +909,18 @@ namespace YelpUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSearchResults.Location = new System.Drawing.Point(0, 3);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.dgvSearchResults.Name = "dgvSearchResults";
             this.dgvSearchResults.RowHeadersWidth = 51;
             this.dgvSearchResults.RowTemplate.Height = 24;
             this.dgvSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.dgvSearchResults.Size = new System.Drawing.Size(760, 577);
+            this.dgvSearchResults.TabIndex = 0;
+=======
 <<<<<<< HEAD
             this.dgvSearchResults.Size = new System.Drawing.Size(1113, 731);
             this.dgvSearchResults.TabIndex = 0;
@@ -788,10 +929,16 @@ namespace YelpUI
             this.dgvSearchResults.Size = new System.Drawing.Size(760, 577);
             this.dgvSearchResults.TabIndex = 0;
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             // 
             // btnTip
             // 
             this.btnTip.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.btnTip.Location = new System.Drawing.Point(158, 0);
+            this.btnTip.Name = "btnTip";
+            this.btnTip.Size = new System.Drawing.Size(152, 31);
+=======
 <<<<<<< HEAD
             this.btnTip.Location = new System.Drawing.Point(178, 0);
             this.btnTip.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -802,6 +949,7 @@ namespace YelpUI
             this.btnTip.Name = "btnTip";
             this.btnTip.Size = new System.Drawing.Size(152, 31);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.btnTip.TabIndex = 1;
             this.btnTip.Text = "Show Tips";
             this.btnTip.UseVisualStyleBackColor = true;
@@ -811,6 +959,10 @@ namespace YelpUI
             // 
             this.btnSearchBusiness.AutoSize = true;
             this.btnSearchBusiness.Location = new System.Drawing.Point(0, 0);
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.btnSearchBusiness.Name = "btnSearchBusiness";
+            this.btnSearchBusiness.Size = new System.Drawing.Size(152, 31);
+=======
 <<<<<<< HEAD
             this.btnSearchBusiness.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearchBusiness.Name = "btnSearchBusiness";
@@ -819,6 +971,7 @@ namespace YelpUI
             this.btnSearchBusiness.Name = "btnSearchBusiness";
             this.btnSearchBusiness.Size = new System.Drawing.Size(152, 31);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.btnSearchBusiness.TabIndex = 0;
             this.btnSearchBusiness.Text = "Search Business";
             this.btnSearchBusiness.UseVisualStyleBackColor = true;
@@ -826,6 +979,8 @@ namespace YelpUI
             // 
             // tabUser
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             this.tabPage1.Controls.Add(this.groupBox4);
@@ -847,6 +1002,7 @@ namespace YelpUI
             this.tabPage1.Text = "User Information";
             this.tabPage1.UseVisualStyleBackColor = true;
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.tabUser.Controls.Add(this.groupBox8);
             this.tabUser.Controls.Add(this.FriendList);
             this.tabUser.Controls.Add(this.groupBox4);
@@ -858,10 +1014,14 @@ namespace YelpUI
             this.tabUser.TabIndex = 2;
             this.tabUser.Text = "User Information";
             this.tabUser.UseVisualStyleBackColor = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            // 
+=======
 >>>>>>> Reorganized code
             // 
 <<<<<<< HEAD
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.dgvLatestTipsOfFriends);
@@ -917,7 +1077,10 @@ namespace YelpUI
             this.dgvFriendsList.Size = new System.Drawing.Size(568, 278);
             this.dgvFriendsList.TabIndex = 0;
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtboxlatitude);
@@ -942,6 +1105,8 @@ namespace YelpUI
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label4);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             this.groupBox4.Location = new System.Drawing.Point(233, 21);
@@ -955,60 +1120,84 @@ namespace YelpUI
             this.groupBox4.Size = new System.Drawing.Size(380, 304);
 >>>>>>> Refactored several elements in the code
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox4.Location = new System.Drawing.Point(207, 6);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Size = new System.Drawing.Size(380, 315);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "User Information";
             // 
             // txtboxlatitude
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtboxlatitude.Location = new System.Drawing.Point(151, 342);
             this.txtboxlatitude.Name = "txtboxlatitude";
             this.txtboxlatitude.Size = new System.Drawing.Size(174, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxlatitude.Location = new System.Drawing.Point(134, 274);
             this.txtboxlatitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxlatitude.Name = "txtboxlatitude";
             this.txtboxlatitude.Size = new System.Drawing.Size(155, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxlatitude.TabIndex = 21;
             // 
             // txtboxlongitude
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtboxlongitude.Location = new System.Drawing.Point(151, 313);
             this.txtboxlongitude.Name = "txtboxlongitude";
             this.txtboxlongitude.Size = new System.Drawing.Size(174, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxlongitude.Location = new System.Drawing.Point(134, 250);
             this.txtboxlongitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxlongitude.Name = "txtboxlongitude";
             this.txtboxlongitude.Size = new System.Drawing.Size(155, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxlongitude.TabIndex = 20;
             // 
             // txtBoxTipLikes
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtBoxTipLikes.Location = new System.Drawing.Point(151, 242);
             this.txtBoxTipLikes.Name = "txtBoxTipLikes";
             this.txtBoxTipLikes.Size = new System.Drawing.Size(58, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxTipLikes.Location = new System.Drawing.Point(134, 194);
             this.txtBoxTipLikes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxTipLikes.Name = "txtBoxTipLikes";
             this.txtBoxTipLikes.Size = new System.Drawing.Size(52, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxTipLikes.TabIndex = 19;
             // 
             // txtBoxTipCount
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             this.txtBoxTipCount.Location = new System.Drawing.Point(118, 207);
@@ -1021,100 +1210,145 @@ namespace YelpUI
             this.txtBoxTipCount.Size = new System.Drawing.Size(48, 22);
 >>>>>>> Refactored several elements in the code
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxTipCount.Location = new System.Drawing.Point(134, 166);
             this.txtBoxTipCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxTipCount.Name = "txtBoxTipCount";
             this.txtBoxTipCount.Size = new System.Drawing.Size(52, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxTipCount.TabIndex = 18;
             // 
             // txtBoxUsefulVotes
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtBoxUsefulVotes.Location = new System.Drawing.Point(228, 175);
             this.txtBoxUsefulVotes.Name = "txtBoxUsefulVotes";
             this.txtBoxUsefulVotes.Size = new System.Drawing.Size(36, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxUsefulVotes.Location = new System.Drawing.Point(203, 140);
             this.txtBoxUsefulVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxUsefulVotes.Name = "txtBoxUsefulVotes";
             this.txtBoxUsefulVotes.Size = new System.Drawing.Size(32, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxUsefulVotes.TabIndex = 17;
             // 
             // txtBoxFunnyVotes
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtBoxFunnyVotes.Location = new System.Drawing.Point(173, 175);
             this.txtBoxFunnyVotes.Name = "txtBoxFunnyVotes";
             this.txtBoxFunnyVotes.Size = new System.Drawing.Size(36, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxFunnyVotes.Location = new System.Drawing.Point(154, 140);
             this.txtBoxFunnyVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxFunnyVotes.Name = "txtBoxFunnyVotes";
             this.txtBoxFunnyVotes.Size = new System.Drawing.Size(32, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxFunnyVotes.TabIndex = 16;
             // 
             // txtBoxCoolVotes
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtBoxCoolVotes.Location = new System.Drawing.Point(120, 175);
             this.txtBoxCoolVotes.Name = "txtBoxCoolVotes";
             this.txtBoxCoolVotes.Size = new System.Drawing.Size(36, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxCoolVotes.Location = new System.Drawing.Point(107, 140);
             this.txtBoxCoolVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxCoolVotes.Name = "txtBoxCoolVotes";
             this.txtBoxCoolVotes.Size = new System.Drawing.Size(32, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxCoolVotes.TabIndex = 15;
             // 
             // txtBoxYelpingSince
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtBoxYelpingSince.Location = new System.Drawing.Point(139, 112);
             this.txtBoxYelpingSince.Name = "txtBoxYelpingSince";
             this.txtBoxYelpingSince.Size = new System.Drawing.Size(186, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxYelpingSince.Location = new System.Drawing.Point(124, 90);
             this.txtBoxYelpingSince.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxYelpingSince.Name = "txtBoxYelpingSince";
             this.txtBoxYelpingSince.Size = new System.Drawing.Size(166, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtBoxYelpingSince.TabIndex = 14;
             // 
             // txtboxUserStars
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtboxUserStars.Location = new System.Drawing.Point(88, 69);
             this.txtboxUserStars.Name = "txtboxUserStars";
             this.txtboxUserStars.Size = new System.Drawing.Size(100, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxUserStars.Location = new System.Drawing.Point(78, 55);
             this.txtboxUserStars.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxUserStars.Name = "txtboxUserStars";
             this.txtboxUserStars.Size = new System.Drawing.Size(89, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxUserStars.TabIndex = 13;
             // 
             // txtboxUserName
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.txtboxUserName.Location = new System.Drawing.Point(88, 37);
             this.txtboxUserName.Name = "txtboxUserName";
             this.txtboxUserName.Size = new System.Drawing.Size(100, 26);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxUserName.Location = new System.Drawing.Point(78, 30);
             this.txtboxUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxUserName.Name = "txtboxUserName";
             this.txtboxUserName.Size = new System.Drawing.Size(89, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxUserName.TabIndex = 12;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label15.Location = new System.Drawing.Point(63, 253);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 17);
+=======
 <<<<<<< HEAD
             this.label15.Location = new System.Drawing.Point(71, 316);
             this.label15.Name = "label15";
@@ -1128,12 +1362,18 @@ namespace YelpUI
 =======
             this.label15.Size = new System.Drawing.Size(71, 17);
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label15.TabIndex = 11;
             this.label15.Text = "Longitude";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label14.Location = new System.Drawing.Point(63, 274);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 17);
+=======
 <<<<<<< HEAD
             this.label14.Location = new System.Drawing.Point(71, 342);
             this.label14.Name = "label14";
@@ -1147,12 +1387,18 @@ namespace YelpUI
 =======
             this.label14.Size = new System.Drawing.Size(59, 17);
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label14.TabIndex = 10;
             this.label14.Text = "Latitude";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label13.Location = new System.Drawing.Point(28, 226);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 17);
+=======
 <<<<<<< HEAD
             this.label13.Location = new System.Drawing.Point(31, 283);
             this.label13.Name = "label13";
@@ -1162,12 +1408,18 @@ namespace YelpUI
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label13.TabIndex = 9;
             this.label13.Text = "Location:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label12.Location = new System.Drawing.Point(28, 196);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(105, 17);
+=======
 <<<<<<< HEAD
             this.label12.Location = new System.Drawing.Point(31, 245);
             this.label12.Name = "label12";
@@ -1177,12 +1429,18 @@ namespace YelpUI
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label12.TabIndex = 8;
             this.label12.Text = "Total Tip Likes:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label11.Location = new System.Drawing.Point(28, 168);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 17);
+=======
 <<<<<<< HEAD
             this.label11.Location = new System.Drawing.Point(31, 210);
             this.label11.Name = "label11";
@@ -1192,12 +1450,18 @@ namespace YelpUI
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label11.TabIndex = 7;
             this.label11.Text = "Tip Count:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label10.Location = new System.Drawing.Point(199, 122);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 17);
+=======
 <<<<<<< HEAD
             this.label10.Location = new System.Drawing.Point(224, 153);
             this.label10.Name = "label10";
@@ -1207,12 +1471,18 @@ namespace YelpUI
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label10.TabIndex = 6;
             this.label10.Text = "useful:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label9.Location = new System.Drawing.Point(106, 122);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 17);
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             this.label9.Location = new System.Drawing.Point(114, 153);
@@ -1226,12 +1496,18 @@ namespace YelpUI
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label9.TabIndex = 5;
             this.label9.Text = "cool:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label8.Location = new System.Drawing.Point(148, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 17);
+=======
 <<<<<<< HEAD
             this.label8.Location = new System.Drawing.Point(166, 153);
             this.label8.Name = "label8";
@@ -1241,12 +1517,18 @@ namespace YelpUI
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label8.TabIndex = 4;
             this.label8.Text = "funny:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label7.Location = new System.Drawing.Point(28, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 17);
+=======
 <<<<<<< HEAD
             this.label7.Location = new System.Drawing.Point(31, 153);
             this.label7.Name = "label7";
@@ -1256,12 +1538,18 @@ namespace YelpUI
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label7.TabIndex = 3;
             this.label7.Text = "Votes:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label6.Location = new System.Drawing.Point(28, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 17);
+=======
 <<<<<<< HEAD
             this.label6.Location = new System.Drawing.Point(31, 112);
             this.label6.Name = "label6";
@@ -1271,12 +1559,18 @@ namespace YelpUI
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label6.TabIndex = 2;
             this.label6.Text = "Yelping Since: ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label5.Location = new System.Drawing.Point(28, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 17);
+=======
 <<<<<<< HEAD
             this.label5.Location = new System.Drawing.Point(31, 72);
             this.label5.Name = "label5";
@@ -1286,12 +1580,18 @@ namespace YelpUI
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label5.TabIndex = 1;
             this.label5.Text = "Stars";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+            this.label4.Location = new System.Drawing.Point(28, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 17);
+=======
 <<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(31, 37);
             this.label4.Name = "label4";
@@ -1301,6 +1601,7 @@ namespace YelpUI
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 17);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.label4.TabIndex = 0;
             this.label4.Text = "Name";
             // 
@@ -1308,17 +1609,23 @@ namespace YelpUI
             // 
             this.groupBox3.Controls.Add(this.lstUsers);
             this.groupBox3.Controls.Add(this.txtboxCurrentUser);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.groupBox3.Location = new System.Drawing.Point(8, 8);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(208, 349);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox3.Location = new System.Drawing.Point(7, 6);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Size = new System.Drawing.Size(185, 314);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Set Current User";
@@ -1326,23 +1633,31 @@ namespace YelpUI
             // lstUsers
             // 
             this.lstUsers.FormattingEnabled = true;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.lstUsers.ItemHeight = 20;
             this.lstUsers.Location = new System.Drawing.Point(6, 67);
             this.lstUsers.Name = "lstUsers";
             this.lstUsers.Size = new System.Drawing.Size(185, 264);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstUsers.ItemHeight = 16;
             this.lstUsers.Location = new System.Drawing.Point(5, 54);
             this.lstUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstUsers.Name = "lstUsers";
             this.lstUsers.Size = new System.Drawing.Size(175, 244);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.lstUsers.TabIndex = 23;
             this.lstUsers.SelectedIndexChanged += new System.EventHandler(this.lstUsers_SelectedIndexChanged);
             // 
             // txtboxCurrentUser
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             this.txtboxCurrentUser.Location = new System.Drawing.Point(0, 25);
@@ -1355,16 +1670,22 @@ namespace YelpUI
             this.txtboxCurrentUser.Size = new System.Drawing.Size(170, 22);
 >>>>>>> Refactored several elements in the code
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxCurrentUser.Location = new System.Drawing.Point(5, 20);
             this.txtboxCurrentUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxCurrentUser.Name = "txtboxCurrentUser";
             this.txtboxCurrentUser.Size = new System.Drawing.Size(175, 22);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.txtboxCurrentUser.TabIndex = 22;
             this.txtboxCurrentUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtboxCurrentUser_KeyDown);
             // 
             // tabMap
             // 
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             this.tabPage3.BackColor = System.Drawing.Color.Gainsboro;
 <<<<<<< HEAD
@@ -1401,6 +1722,7 @@ namespace YelpUI
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Map";
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.tabMap.BackColor = System.Drawing.Color.Gainsboro;
             this.tabMap.Controls.Add(this.elementHost1);
             this.tabMap.Location = new System.Drawing.Point(4, 25);
@@ -1409,7 +1731,10 @@ namespace YelpUI
             this.tabMap.Size = new System.Drawing.Size(1189, 624);
             this.tabMap.TabIndex = 3;
             this.tabMap.Text = "Map";
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.Designer.cs
             // 
             // elementHost1
             // 
@@ -1428,7 +1753,10 @@ namespace YelpUI
             this.ClientSize = new System.Drawing.Size(1197, 653);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
@@ -1446,10 +1774,13 @@ namespace YelpUI
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
             this.tabPage1.ResumeLayout(false);
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1462,7 +1793,10 @@ namespace YelpUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvLatestTipsOfFriends)).EndInit();
             this.FriendList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFriendsList)).EndInit();
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1518,12 +1852,15 @@ namespace YelpUI
         private System.Windows.Forms.TextBox txtboxlongitude;
         private System.Windows.Forms.TextBox txtBoxTipLikes;
         private System.Windows.Forms.TextBox txtBoxTipCount;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 <<<<<<< HEAD
         private System.Windows.Forms.ListBox lstUsers;
         private System.Windows.Forms.TextBox txtboxCurrentUser;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.WebBrowser webBrowser1;
 =======
+>>>>>>> YelpUI/Form1.Designer.cs
         private System.Windows.Forms.TextBox txtboxCurrentUser;
         private System.Windows.Forms.TabPage tabMap;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
@@ -1556,7 +1893,10 @@ namespace YelpUI
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView dgvLatestTipsOfFriends;
         public System.Windows.Forms.ListBox lstUsers;
+<<<<<<< YelpUI/Form1.Designer.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.Designer.cs
     }
 }
 

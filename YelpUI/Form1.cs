@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,27 +9,40 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
 using System.Text.RegularExpressions;
+<<<<<<< YelpUI/Form1.cs
+using System.Xaml;
+using Microsoft.Maps.MapControl.WPF;
+=======
 <<<<<<< HEAD
 
 =======
 using System.Xaml;
 using Microsoft.Maps.MapControl.WPF;
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
 
 namespace YelpUI
 {
     public partial class Form1 : Form
     {
+<<<<<<< YelpUI/Form1.cs
+        Form2 form2;
+
+=======
 <<<<<<< HEAD
         
 =======
         Form2 form2;
 
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
         public Form1()
         {
             InitializeComponent();
             AddColumnsToGrid();
+<<<<<<< YelpUI/Form1.cs
+            AddStates();
+=======
 <<<<<<< HEAD
             AddState();
 <<<<<<< HEAD
@@ -104,6 +117,7 @@ namespace YelpUI
 =======
             AddStates();
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
             //Set Credentials for map
             mapUserControl1.Map.CredentialsProvider = new ApplicationIdCredentialsProvider("ij9m4kXF9y1dWhdSB32F~kZleupJqeM4xTdJn-65ayg~ApA6rZM_WE53KJnHWs3GGisYmO83tzKnHqWYE9DBDWAC6i3aQjt8m843IXmWZIH4");
             tabBusiness.Enabled = false;
@@ -115,6 +129,8 @@ namespace YelpUI
             SQLQueries.executeQuery(sqlstr, addState);
         }
 
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
         private void addState(NpgsqlDataReader R)
         {
@@ -203,6 +219,7 @@ namespace YelpUI
 
 =======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
         private void lstState_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstCity.Items.Clear();
@@ -211,21 +228,27 @@ namespace YelpUI
             lstFilteringCategories.Items.Clear();
             if (lstState.SelectedIndex > -1)
             {
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
                 string sqlstr = "SELECT distinct city FROM business WHERE state = " + "'" + lstState.SelectedItem.ToString() + "'" + " ORDER BY city";
                 executeQuery(sqlstr, addCity);
 =======
+>>>>>>> YelpUI/Form1.cs
                 string args = "city";
                 string tables = "business";
                 string condition = "state = '" + lstState.SelectedItem.ToString() + "'" + " ORDER BY city";
 
                 string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, condition);
                 SQLQueries.executeQuery(sqlstr, addCity);
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
 
 >>>>>>> Refactored several elements in the code
 =======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
             }
         }
 
@@ -235,11 +258,14 @@ namespace YelpUI
             lstCategories.Items.Clear();
             if (lstCity.SelectedIndex > -1)
             {
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
                 string sqlstr = "SELECT DISTINCT postal_code FROM business WHERE state = " + "'" + lstState.SelectedItem.ToString()
                     + "' AND CITY = '" + lstCity.SelectedItem.ToString() + "' ORDER BY postal_code";
                 executeQuery(sqlstr, addZipcode);
 =======
+>>>>>>> YelpUI/Form1.cs
                 string args = "postal_code";
                 string tables = "business";
                 string conditions = "state = " + "'" + lstState.SelectedItem.ToString()
@@ -247,7 +273,10 @@ namespace YelpUI
 
                 string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, conditions);
                 SQLQueries.executeQuery(sqlstr, addZipcode);
+<<<<<<< YelpUI/Form1.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
             }
         }
 
@@ -256,6 +285,11 @@ namespace YelpUI
             lstCategories.Items.Clear();
             if (lstZipcode.SelectedIndex > -1)
             {
+<<<<<<< YelpUI/Form1.cs
+                string args = "category_name";
+                string tables = "BusinessCategories bc, Business b";
+                string conditions = "bc.business_id = b.business_id AND b.state = '" +
+=======
 <<<<<<< HEAD
                 string sqlstr = "SELECT DISTINCT category_name " +
                                 "FROM BusinessCategories bc, Business b " +
@@ -265,20 +299,27 @@ namespace YelpUI
                 string tables = "BusinessCategories bc, Business b";
                 string conditions = "bc.business_id = b.business_id AND b.state = '" +
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
                                 lstState.SelectedItem.ToString() +
                                 "' AND b.city = '" +
                                 lstCity.SelectedItem.ToString() +
                                 "' AND b.postal_code = '" +
                                 lstZipcode.SelectedItem.ToString() +
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
                                 "';";
                 executeQuery(sqlstr, addCategories);
 =======
+>>>>>>> YelpUI/Form1.cs
                                 "'";
 
                 string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, conditions);
                 SQLQueries.executeQuery(sqlstr, addCategories);
+<<<<<<< YelpUI/Form1.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
             }
         }
 
@@ -293,11 +334,16 @@ namespace YelpUI
 
         private void btnSearchBusiness_Click(object sender, EventArgs e)
         {
+<<<<<<< YelpUI/Form1.cs
+
+            mapUserControl1.Map.Children.Clear();
+=======
 <<<<<<< HEAD
 =======
 
             mapUserControl1.Map.Children.Clear();
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
             StringBuilder query = new StringBuilder();
             dgvSearchResults.Rows.Clear();
             dgvSearchResults.Refresh();
@@ -307,6 +353,11 @@ namespace YelpUI
             }
             else
             {
+<<<<<<< YelpUI/Form1.cs
+                string args = "b.business_id";
+                string tables = "BusinessCategories bc, Business b";
+                string conditions = "bc.business_id = b.business_id AND b.state = '" +
+=======
 <<<<<<< HEAD
                 string sqlstr = "SELECT DISTINCT business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id " +
                                 "FROM BusinessCategories bc, Business b " +
@@ -316,20 +367,29 @@ namespace YelpUI
                 string tables = "BusinessCategories bc, Business b";
                 string conditions = "bc.business_id = b.business_id AND b.state = '" +
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
                                 lstState.SelectedItem.ToString() +
                                 "' AND b.city = '" +
                                 lstCity.SelectedItem.ToString() +
                                 "' AND b.postal_code = '" +
                                 lstZipcode.SelectedItem.ToString() + "'";
+<<<<<<< YelpUI/Form1.cs
+
+                string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, conditions);
+=======
 <<<<<<< HEAD
 =======
 
                 string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, conditions);
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
                 query.Append(sqlstr);
 
                 if (lstFilteringCategories.Items.Count > 0)
                 {
+<<<<<<< YelpUI/Form1.cs
+                    query = SQLQueries.AddFilteringCategories(lstFilteringCategories.Items, query);
+=======
 <<<<<<< HEAD
                     query.Append(" AND category_name IN (");
                     int categoryCount = 0;
@@ -367,6 +427,7 @@ namespace YelpUI
 =======
                     query = SQLQueries.AddFilteringCategories(lstFilteringCategories.Items, query);
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
                 }
 
                 if (checkBoxCreditCard.CheckState == CheckState.Checked)
@@ -455,6 +516,8 @@ namespace YelpUI
 
         }
 
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
         private void preaddGridRow(NpgsqlDataReader R)
         {
@@ -470,6 +533,7 @@ namespace YelpUI
 
 =======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (lstFilteringCategories.SelectedIndex > -1)
@@ -487,6 +551,8 @@ namespace YelpUI
             dgvSearchResults.Columns.Add("clmnNumTips", "# of Tips");
             dgvSearchResults.Columns.Add("clmnNumCheckIns", "# of CheckIns");
             dgvSearchResults.Columns.Add("clmnBID", "BusinessID");
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
 
 <<<<<<< HEAD
@@ -501,6 +567,7 @@ namespace YelpUI
 >>>>>>> Refactored several elements in the code
 =======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
             dgvSearchResults.EnableHeadersVisualStyles = false;
             dgvSearchResults.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#E6C6FF");
             foreach (DataGridViewColumn column in dgvSearchResults.Columns)
@@ -511,10 +578,13 @@ namespace YelpUI
             dgvSearchResults.Columns["clmnAddress"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvSearchResults.RowHeadersVisible = false;
             dgvSearchResults.Columns["clmnBID"].Visible = false;
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
         }
 
 =======
+>>>>>>> YelpUI/Form1.cs
 
             dgvFriendsList.Columns.Add("clmnName", "Name");
             dgvFriendsList.Columns.Add("clmnTotalLikes", "Total Likes");
@@ -549,6 +619,8 @@ namespace YelpUI
             dgvLatestTipsOfFriends.Columns["clmnText"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvLatestTipsOfFriends.Columns["clmnDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvLatestTipsOfFriends.RowHeadersVisible = false;
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
         }
 
@@ -622,17 +694,25 @@ namespace YelpUI
 
 >>>>>>> Refactored several elements in the code
 =======
+>>>>>>> YelpUI/Form1.cs
         }      
 
         private void btnTip_Click(object sender, EventArgs e)
         {
+<<<<<<< YelpUI/Form1.cs
+=======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
             string businessID = dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString();
             string strsql = "SELECT DISTINCT date, name, number_of_likes, text_review " +
                 "FROM Tips, Business, Users " +
                 "WHERE Business.business_id = '" + businessID + "' AND Business.business_id = Tips.business_id AND Users.user_id = Tips.user_id;";
             
             form2 = new Form2(this);
+<<<<<<< YelpUI/Form1.cs
+            form2.Show();
+
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             
@@ -645,6 +725,7 @@ namespace YelpUI
             form2.Show();
 
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
             form2.dgvTips.Columns.Add("clmnDate", "Date");
             form2.dgvTips.Columns.Add("clmnName", "User Name");
             form2.dgvTips.Columns.Add("clmnNumLikes", "# of Likes");
@@ -658,12 +739,15 @@ namespace YelpUI
             }
             form2.dgvTips.Columns["clmnReview"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
             
 
             form2.dgvTips.RowHeadersVisible = false;
             executeQuery(strsql, addTip);
 =======
+>>>>>>> YelpUI/Form1.cs
             form2.dgvTips.RowHeadersVisible = false;
             SQLQueries.executeQuery(strsql, addTip);
 
@@ -681,6 +765,8 @@ namespace YelpUI
 
             form2.dgvFriendsTipsBusiness.RowHeadersVisible = false;
 
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
             string sqlstr4 = "SELECT name, date, text_review " +
             "from tips, users, business " +
@@ -701,6 +787,7 @@ namespace YelpUI
 
 >>>>>>> Refactored several elements in the code
 =======
+>>>>>>> YelpUI/Form1.cs
             if (lstUsers.SelectedIndex > 0)
             {
                 string sqlstr2 = "SELECT name, date, text_review " +
@@ -711,7 +798,10 @@ namespace YelpUI
                            "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id and business.business_id = '" + dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString() + "'";
                 SQLQueries.executeQuery(sqlstr2, addTipsOfFriendsBusiness);
             }           
+<<<<<<< YelpUI/Form1.cs
+=======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
         }
 
         private void txtboxCurrentUser_KeyDown(object sender, KeyEventArgs e)
@@ -723,6 +813,11 @@ namespace YelpUI
                 string strsql = "SELECT user_id" +
                     " FROM users " +
                     "WHERE name = '" + usersName + "'";
+<<<<<<< YelpUI/Form1.cs
+                SQLQueries.executeQuery(strsql, addUsers);
+                tabBusiness.Enabled = true;
+                tabMap.Enabled = true;
+=======
 <<<<<<< HEAD
                 executeQuery(strsql, addUsers);
 =======
@@ -733,11 +828,14 @@ namespace YelpUI
                 tabBusiness.Enabled = true;
                 tabMap.Enabled = true;
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
             }
         }
 
         private void lstUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
+<<<<<<< YelpUI/Form1.cs
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             string usersID = lstUsers.SelectedItem.ToString();
@@ -776,6 +874,7 @@ namespace YelpUI
 
 =======
 >>>>>>> Reorganized code
+>>>>>>> YelpUI/Form1.cs
             dgvFriendsList.Rows.Clear();
             dgvLatestTipsOfFriends.Rows.Clear();
             string userID = lstUsers.SelectedItem.ToString();
@@ -873,7 +972,10 @@ namespace YelpUI
             form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnDate"].Value = R.GetDateTime(1);
             form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnText"].Value = R.GetString(2);
         }
+<<<<<<< YelpUI/Form1.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Form1.cs
 
         private void addTipsOfFriends(NpgsqlDataReader R)
         {

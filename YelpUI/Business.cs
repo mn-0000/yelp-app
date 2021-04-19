@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +18,12 @@ namespace YelpUI
         public string Address { get; set; }
         public int PostalCode { get; set; }
         public int NumCheckIns { get; set; }
+<<<<<<< YelpUI/Business.cs
+=======
 <<<<<<< HEAD
 
 =======
+>>>>>>> YelpUI/Business.cs
         public double Longitude { get; set; }
         public double Latitude { get; set; }
 
@@ -28,6 +31,9 @@ namespace YelpUI
         {
 
         }
+<<<<<<< YelpUI/Business.cs
+=======
 >>>>>>> Refactored several elements in the code
+>>>>>>> YelpUI/Business.cs
     }
 }
