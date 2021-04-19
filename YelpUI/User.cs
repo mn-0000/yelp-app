@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace YelpUI
 {
+<<<<<<< HEAD
     public class User
+=======
+    public class User : SQLQueries
+>>>>>>> Refactored several elements in the code
     {
         public string userID { get; set; }
         public double avg_stars { get; set; }
@@ -20,5 +24,13 @@ namespace YelpUI
         public int totalLikes { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+
+>>>>>>> Refactored several elements in the code
+=======
+>>>>>>> Reorganized code
     }
 }
