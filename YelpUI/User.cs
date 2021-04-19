@@ -27,7 +27,10 @@ namespace YelpUI
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 
 >>>>>>> Refactored several elements in the code
+=======
+>>>>>>> Reorganized code
     }
 }

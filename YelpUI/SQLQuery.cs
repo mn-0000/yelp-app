@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace YelpUI
 {
@@ -38,7 +39,7 @@ namespace YelpUI
                     }
                     catch (NpgsqlException nex)
                     {
-                        MessageBox.Show("SQL Error - " + nex.Message.ToString());
+                        System.Windows.Forms.MessageBox.Show("SQL Error - " + nex.Message.ToString());
                     }
                     finally
                     {
@@ -65,7 +66,6 @@ namespace YelpUI
                     sqlQuery.Append(" WHERE ");
                     sqlQuery.Append(conditions);
                 }
-
             }
             return sqlQuery.ToString();
         }
@@ -75,6 +75,31 @@ namespace YelpUI
             query.Insert(0, SQLQueries.AttributeQuery, 1);
             query.Append(") and b.business_id = ba.business_id and attribute_name = '");
             query.Append(attribute + "' and attribute_value = '" + attributeValue + "'");
+            return query;
+        }
+
+        public static StringBuilder AddFilteringCategories(ListBox.ObjectCollection categories, StringBuilder query)
+        {
+
+            query.Append(" AND category_name IN (");
+            int categoryCount = 0;
+            foreach (string item in categories)
+            {
+                if (categoryCount == categories.Count - 1)
+                {
+                    query.Append("'" + item + "'");
+                    categoryCount++;
+                }
+                else
+                {
+                    query.Append("'" + item + "'" + ", ");
+                    categoryCount++;
+                }
+            }
+            string endSqlstr = ") GROUP BY business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id " +
+                "HAVING count(*) = " + categoryCount.ToString();
+
+            query.Append(endSqlstr);
             return query;
         }
     }
