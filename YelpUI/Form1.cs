@@ -22,85 +22,16 @@ namespace YelpUI
         {
             InitializeComponent();
             AddColumnsToGrid();
-            AddState();
+            AddStates();
             //Set Credentials for map
             mapUserControl1.Map.CredentialsProvider = new ApplicationIdCredentialsProvider("ij9m4kXF9y1dWhdSB32F~kZleupJqeM4xTdJn-65ayg~ApA6rZM_WE53KJnHWs3GGisYmO83tzKnHqWYE9DBDWAC6i3aQjt8m843IXmWZIH4");
-
+            tabBusiness.Enabled = false;
+            tabMap.Enabled = false;
         }
-
-        private void AddState()
+        private void AddStates()
         {
             string sqlstr = "SELECT DISTINCT state FROM business ORDER BY state";
             SQLQueries.executeQuery(sqlstr, addState);
-        }
-
-        private void addState(NpgsqlDataReader R)
-        {
-            lstState.Items.Add(R.GetString(0));
-        }
-        private void addCity(NpgsqlDataReader R)
-        {
-            lstCity.Items.Add(R.GetString(0));
-        }
-        private void addZipcode(NpgsqlDataReader R)
-        {
-            lstZipcode.Items.Add(R.GetString(0));
-
-        }
-
-        private void addCategories(NpgsqlDataReader R)
-        {
-            lstCategories.Items.Add(R.GetString(0));
-        }
-
-        private void addUsers(NpgsqlDataReader R)
-        {
-            lstUsers.Items.Add(R.GetString(0));
-        }
-
-        private void addUserInfo(NpgsqlDataReader R)
-        {
-            User user = new User();
-
-            user.avg_stars = R.GetDouble(0);
-            user.name = R.GetString(1);
-            user.coolVotes = R.GetInt32(2);
-            user.funnyVotes = R.GetInt32(3);
-            user.usefulVotes = R.GetInt32(4);
-            user.tipCount = R.GetInt32(5);
-            user.fans = R.GetInt32(6);
-            user.totalLikes = R.GetInt32(7);
-            user.yelping_since = R.GetString(8);
-
-            txtboxUserStars.Text = user.avg_stars.ToString();
-            txtboxUserName.Text = user.name;
-            txtBoxCoolVotes.Text = user.coolVotes.ToString();
-            txtBoxFunnyVotes.Text = user.funnyVotes.ToString();
-            txtBoxUsefulVotes.Text = user.usefulVotes.ToString();
-            txtBoxTipCount.Text = user.tipCount.ToString();
-            txtBoxTipLikes.Text = user.totalLikes.ToString();
-            txtBoxYelpingSince.Text = user.yelping_since;
-        }
-
-        private void addFriends(NpgsqlDataReader R)
-        {
-            string userid = R.GetString(0);
-
-            string sqlstr = "SELECT Name, tip_likes, average_stars, yelping_since " +
-                "FROM users " +
-                    "WHERE user_id = '" + userid + "'";
-
-            SQLQueries.executeQuery(sqlstr, fillFriendsList);
-        }
-
-        private void fillFriendsList(NpgsqlDataReader R)
-        {
-            var index = dgvFriendsList.Rows.Add();
-
-            dgvFriendsList.Rows[index].Cells["clmnName"].Value = R.GetString(0);
-            dgvFriendsList.Rows[index].Cells["clmnTotalLikes"].Value = R.GetInt32(1);
-            dgvFriendsList.Rows[index].Cells["clmnAvgStars"].Value = R.GetDouble(2);
-            dgvFriendsList.Rows[index].Cells["clmnYelpSince"].Value = R.GetString(3);
         }
 
         private void lstState_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,7 +48,6 @@ namespace YelpUI
 
                 string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, condition);
                 SQLQueries.executeQuery(sqlstr, addCity);
-
             }
         }
 
@@ -193,25 +123,7 @@ namespace YelpUI
 
                 if (lstFilteringCategories.Items.Count > 0)
                 {
-                    query.Append(" AND category_name IN (");
-                    int categoryCount = 0;
-                    foreach (string item in lstFilteringCategories.Items)
-                    {
-                        if (categoryCount == lstFilteringCategories.Items.Count - 1)
-                        {
-                            query.Append("'" + item + "'");
-                            categoryCount++;
-                        }
-                        else
-                        {
-                            query.Append("'" + item + "'" + ", ");
-                            categoryCount++;
-                        }
-                    }
-                    string endSqlstr = ") GROUP BY business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id " +
-                        "HAVING count(*) = " + categoryCount.ToString();
-
-                    query.Append(endSqlstr);
+                    query = SQLQueries.AddFilteringCategories(lstFilteringCategories.Items, query);
                 }
 
                 if (checkBoxCreditCard.CheckState == CheckState.Checked)
@@ -300,17 +212,6 @@ namespace YelpUI
 
         }
 
-        private void preaddGridRow(NpgsqlDataReader R)
-        {
-            string businessid = R.GetString(0);
-            string args = "business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id, longitude, latitude";
-            string tables = "business b";
-            string conditions ="b.business_id = '" + businessid + "'";
-            string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, conditions);
-            SQLQueries.executeQuery(sqlstr, addGridRow);
-
-        }
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (lstFilteringCategories.SelectedIndex > -1)
@@ -328,7 +229,6 @@ namespace YelpUI
             dgvSearchResults.Columns.Add("clmnNumTips", "# of Tips");
             dgvSearchResults.Columns.Add("clmnNumCheckIns", "# of CheckIns");
             dgvSearchResults.Columns.Add("clmnBID", "BusinessID");
-
             dgvSearchResults.EnableHeadersVisualStyles = false;
             dgvSearchResults.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#E6C6FF");
             foreach (DataGridViewColumn column in dgvSearchResults.Columns)
@@ -337,10 +237,8 @@ namespace YelpUI
             }
             dgvSearchResults.Columns["clmnBName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvSearchResults.Columns["clmnAddress"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
             dgvSearchResults.RowHeadersVisible = false;
             dgvSearchResults.Columns["clmnBID"].Visible = false;
-
 
             dgvFriendsList.Columns.Add("clmnName", "Name");
             dgvFriendsList.Columns.Add("clmnTotalLikes", "Total Likes");
@@ -356,9 +254,7 @@ namespace YelpUI
             dgvFriendsList.Columns["clmnAvgStars"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvFriendsList.Columns["clmnTotalLikes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvFriendsList.Columns["clmnYelpSince"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
             dgvFriendsList.RowHeadersVisible = false;
-
 
             dgvLatestTipsOfFriends.Columns.Add("clmnName", "User Name");
             dgvLatestTipsOfFriends.Columns.Add("clmnBusiness", "Business");
@@ -376,72 +272,17 @@ namespace YelpUI
             dgvLatestTipsOfFriends.Columns["clmnCity"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvLatestTipsOfFriends.Columns["clmnText"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvLatestTipsOfFriends.Columns["clmnDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
             dgvLatestTipsOfFriends.RowHeadersVisible = false;
-        }
-
-        private void addTipsOfFriends(NpgsqlDataReader R)
-        {
-            var index = dgvLatestTipsOfFriends.Rows.Add();
-            dgvLatestTipsOfFriends.Rows[index].Cells["clmnName"].Value = R.GetString(0);
-            dgvLatestTipsOfFriends.Rows[index].Cells["clmnBusiness"].Value = R.GetString(1);
-            dgvLatestTipsOfFriends.Rows[index].Cells["clmnCity"].Value = R.GetString(2);
-            dgvLatestTipsOfFriends.Rows[index].Cells["clmnText"].Value = R.GetString(3);
-            dgvLatestTipsOfFriends.Rows[index].Cells["clmnDate"].Value = R.GetDateTime(4);
-        }
-        private void addGridRow(NpgsqlDataReader R)
-        {
-            Business business = new Business()
-            {
-                Name = R.GetString(0),
-                Address = R.GetString(1),
-                City = R.GetString(2),
-                State = R.GetString(3),
-                NumTips = R.GetInt32(4),
-                NumCheckIns = R.GetInt32(5),
-                BusinessID = R.GetString(6),
-                Longitude = R.GetDouble(7),
-                Latitude = R.GetDouble(8)
-            };
-            var index = dgvSearchResults.Rows.Add();
-            dgvSearchResults.Rows[index].Cells["clmnBName"].Value = business.Name;
-            dgvSearchResults.Rows[index].Cells["clmnAddress"].Value = business.Address;
-            dgvSearchResults.Rows[index].Cells["clmnCity"].Value = business.City;
-            dgvSearchResults.Rows[index].Cells["clmnState"].Value = business.State;
-            dgvSearchResults.Rows[index].Cells["clmnNumTips"].Value = business.NumTips;
-            dgvSearchResults.Rows[index].Cells["clmnNumCheckIns"].Value = business.NumCheckIns;
-            dgvSearchResults.Rows[index].Cells["clmnBID"].Value = business.BusinessID;
-            Pushpin pin = new Pushpin();
-            pin.Location = new Location(R.GetDouble(8), R.GetDouble(7));
-            mapUserControl1.Map.Children.Add(pin);
-
-        }
-
-        private void addTip(NpgsqlDataReader R)
-        {
-            Tip tip = new Tip()
-            {
-                Date = R.GetDateTime(0),
-                UserName = R.GetString(1),
-                NumLikes = R.GetInt32(2),
-                TextReview = R.GetString(3),
-            };
-            var index = form2.dgvTips.Rows.Add();
-            form2.dgvTips.Rows[index].Cells["clmnDate"].Value = tip.Date.ToString();
-            form2.dgvTips.Rows[index].Cells["clmnName"].Value = tip.UserName;
-            form2.dgvTips.Rows[index].Cells["clmnNumLikes"].Value = tip.NumLikes.ToString();
-            form2.dgvTips.Rows[index].Cells["clmnReview"].Value = tip.TextReview;
-        }
+        }      
 
         private void btnTip_Click(object sender, EventArgs e)
         {
-
             string businessID = dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString();
             string strsql = "SELECT DISTINCT date, name, number_of_likes, text_review " +
                 "FROM Tips, Business, Users " +
                 "WHERE Business.business_id = '" + businessID + "' AND Business.business_id = Tips.business_id AND Users.user_id = Tips.user_id;";
+            
             form2 = new Form2(this);
-
             form2.Show();
 
             form2.dgvTips.Columns.Add("clmnDate", "Date");
@@ -474,50 +315,41 @@ namespace YelpUI
 
             form2.dgvFriendsTipsBusiness.RowHeadersVisible = false;
 
-            string sqlstr4 = "SELECT name, date, text_review " +
-            "from tips, users, business " +
-              "where users.user_id in ( select friend_id  " +
-                  "from friends,tips " +
-                   "where friends.user_id = '" + dgvSearchResults.SelectedRows.ToString() + "' and friends.friend_id = tips.user_id " +
-                      "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id and business.business_id = '" + dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString() + "'";
-            SQLQueries.executeQuery(sqlstr4, addTipsOfFriendsBusiness);
-
-        }
-
-        private void addTipsOfFriendsBusiness(NpgsqlDataReader R)
-        {
-            var index = form2.dgvFriendsTipsBusiness.Rows.Add();
-            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnName"].Value = R.GetString(0);
-            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnDate"].Value = R.GetDateTime(1);
-            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnText"].Value = R.GetString(2);
-
+            if (lstUsers.SelectedIndex > 0)
+            {
+                string sqlstr2 = "SELECT name, date, text_review " +
+                 "from tips, users, business " +
+                    "where users.user_id in ( select friend_id " +
+                       "from friends,tips " +
+                        "where friends.user_id = '" + lstUsers.SelectedItem.ToString() + "' and friends.friend_id = tips.user_id " +
+                           "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id and business.business_id = '" + dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString() + "'";
+                SQLQueries.executeQuery(sqlstr2, addTipsOfFriendsBusiness);
+            }           
         }
 
         private void txtboxCurrentUser_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-
                 lstUsers.Items.Clear();
                 string usersName = txtboxCurrentUser.Text;
                 string strsql = "SELECT user_id" +
                     " FROM users " +
                     "WHERE name = '" + usersName + "'";
                 SQLQueries.executeQuery(strsql, addUsers);
+                tabBusiness.Enabled = true;
+                tabMap.Enabled = true;
             }
         }
 
         private void lstUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             dgvFriendsList.Rows.Clear();
-
+            dgvLatestTipsOfFriends.Rows.Clear();
             string userID = lstUsers.SelectedItem.ToString();
-
             string sqlstr = "SELECT average_stars, name, number_of_cool_votes,number_of_funny_votes, number_of_useful_votes, tip_count, fan_count,tip_likes, yelping_since " +
                 "FROM users " +
                     "WHERE user_id = '" + userID + "'";
-
             SQLQueries.executeQuery(sqlstr, addUserInfo);
 
             string sqlstr2 = "SELECT friend_id " +
@@ -531,11 +363,147 @@ namespace YelpUI
                         "from friends,tips " +
                          "where friends.user_id = '" + userID + "' and friends.friend_id = tips.user_id " +
                             "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id";
-
             SQLQueries.executeQuery(sqlstr3, addTipsOfFriends);
-
         }
 
+        private void addState(NpgsqlDataReader R)
+        {
+            lstState.Items.Add(R.GetString(0));
+        }
+
+        private void addCity(NpgsqlDataReader R)
+        {
+            lstCity.Items.Add(R.GetString(0));
+        }
+
+        private void addZipcode(NpgsqlDataReader R)
+        {
+            lstZipcode.Items.Add(R.GetString(0));
+        }
+
+        private void addCategories(NpgsqlDataReader R)
+        {
+            lstCategories.Items.Add(R.GetString(0));
+        }
+
+        private void addUsers(NpgsqlDataReader R)
+        {
+            lstUsers.Items.Add(R.GetString(0));
+        }
+
+        private void addUserInfo(NpgsqlDataReader R)
+        {
+            User user = new User();
+
+            user.avg_stars = R.GetDouble(0);
+            user.name = R.GetString(1);
+            user.coolVotes = R.GetInt32(2);
+            user.funnyVotes = R.GetInt32(3);
+            user.usefulVotes = R.GetInt32(4);
+            user.tipCount = R.GetInt32(5);
+            user.fans = R.GetInt32(6);
+            user.totalLikes = R.GetInt32(7);
+            user.yelping_since = R.GetString(8);
+
+            txtboxUserStars.Text = user.avg_stars.ToString();
+            txtboxUserName.Text = user.name;
+            txtBoxCoolVotes.Text = user.coolVotes.ToString();
+            txtBoxFunnyVotes.Text = user.funnyVotes.ToString();
+            txtBoxUsefulVotes.Text = user.usefulVotes.ToString();
+            txtBoxTipCount.Text = user.tipCount.ToString();
+            txtBoxTipLikes.Text = user.totalLikes.ToString();
+            txtBoxYelpingSince.Text = user.yelping_since;
+        }
+
+        private void addFriends(NpgsqlDataReader R)
+        {
+            string userid = R.GetString(0);
+            string args = "name, tip_likes, average_stars, yelping_since";
+            string tables = "users";
+            string conditions = "user_id = '" + userid + "'";
+            string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, conditions);
+            SQLQueries.executeQuery(sqlstr, fillFriendsList);
+        }
+
+        private void fillFriendsList(NpgsqlDataReader R)
+        {
+            var index = dgvFriendsList.Rows.Add();
+            dgvFriendsList.Rows[index].Cells["clmnName"].Value = R.GetString(0);
+            dgvFriendsList.Rows[index].Cells["clmnTotalLikes"].Value = R.GetInt32(1);
+            dgvFriendsList.Rows[index].Cells["clmnAvgStars"].Value = R.GetDouble(2);
+            dgvFriendsList.Rows[index].Cells["clmnYelpSince"].Value = R.GetString(3);
+        }
+
+        private void addTipsOfFriendsBusiness(NpgsqlDataReader R)
+        {
+            var index = form2.dgvFriendsTipsBusiness.Rows.Add();
+            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnName"].Value = R.GetString(0);
+            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnDate"].Value = R.GetDateTime(1);
+            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnText"].Value = R.GetString(2);
+        }
+
+        private void addTipsOfFriends(NpgsqlDataReader R)
+        {
+            var index = dgvLatestTipsOfFriends.Rows.Add();
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnName"].Value = R.GetString(0);
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnBusiness"].Value = R.GetString(1);
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnCity"].Value = R.GetString(2);
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnText"].Value = R.GetString(3);
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnDate"].Value = R.GetDateTime(4);
+        }
+
+        private void preaddGridRow(NpgsqlDataReader R)
+        {
+            string businessid = R.GetString(0);
+            string args = "business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id, longitude, latitude";
+            string tables = "business b";
+            string conditions = "b.business_id = '" + businessid + "'";
+            string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, conditions);
+            SQLQueries.executeQuery(sqlstr, addGridRow);
+        }
+
+        private void addGridRow(NpgsqlDataReader R)
+        {
+            Business business = new Business()
+            {
+                Name = R.GetString(0),
+                Address = R.GetString(1),
+                City = R.GetString(2),
+                State = R.GetString(3),
+                NumTips = R.GetInt32(4),
+                NumCheckIns = R.GetInt32(5),
+                BusinessID = R.GetString(6),
+                Longitude = R.GetDouble(7),
+                Latitude = R.GetDouble(8)
+            };
+            var index = dgvSearchResults.Rows.Add();
+            dgvSearchResults.Rows[index].Cells["clmnBName"].Value = business.Name;
+            dgvSearchResults.Rows[index].Cells["clmnAddress"].Value = business.Address;
+            dgvSearchResults.Rows[index].Cells["clmnCity"].Value = business.City;
+            dgvSearchResults.Rows[index].Cells["clmnState"].Value = business.State;
+            dgvSearchResults.Rows[index].Cells["clmnNumTips"].Value = business.NumTips;
+            dgvSearchResults.Rows[index].Cells["clmnNumCheckIns"].Value = business.NumCheckIns;
+            dgvSearchResults.Rows[index].Cells["clmnBID"].Value = business.BusinessID;
+            Pushpin pin = new Pushpin();
+            pin.Location = new Location(R.GetDouble(8), R.GetDouble(7));
+            mapUserControl1.Map.Children.Add(pin);
+        }
+
+        private void addTip(NpgsqlDataReader R)
+        {
+            Tip tip = new Tip()
+            {
+                Date = R.GetDateTime(0),
+                UserName = R.GetString(1),
+                NumLikes = R.GetInt32(2),
+                TextReview = R.GetString(3),
+            };
+            var index = form2.dgvTips.Rows.Add();
+            form2.dgvTips.Rows[index].Cells["clmnDate"].Value = tip.Date.ToString();
+            form2.dgvTips.Rows[index].Cells["clmnName"].Value = tip.UserName;
+            form2.dgvTips.Rows[index].Cells["clmnNumLikes"].Value = tip.NumLikes.ToString();
+            form2.dgvTips.Rows[index].Cells["clmnReview"].Value = tip.TextReview;
+        }
     }
 }
 
