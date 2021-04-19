@@ -19,5 +19,9 @@ namespace YelpUI
         public int PostalCode { get; set; }
         public int NumCheckIns { get; set; }
 
+        public double Longitude { get; set; }
+
+        public double Latitude { get; set; }
+
     }
 }

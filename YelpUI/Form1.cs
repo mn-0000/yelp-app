@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
 using System.Text.RegularExpressions;
-
+using System.Xaml;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace YelpUI
 {
@@ -21,6 +22,9 @@ namespace YelpUI
             InitializeComponent();
             AddColumnsToGrid();
             AddState();
+            //Set Credentials for map
+            mapUserControl1.Map.CredentialsProvider = new ApplicationIdCredentialsProvider("ij9m4kXF9y1dWhdSB32F~kZleupJqeM4xTdJn-65ayg~ApA6rZM_WE53KJnHWs3GGisYmO83tzKnHqWYE9DBDWAC6i3aQjt8m843IXmWZIH4");
+            
         }
 
         Form2 form2;
@@ -111,11 +115,6 @@ namespace YelpUI
         private void addUserInfo(NpgsqlDataReader R)
         {
 
-            //SELECT average_stars, name, number_of_cool_votes,
-            //            number_of_funny_votes, number_of_useful_votes, tip_count, fan_count
-            //				tip_likes, yelping_since
-            //FROM users
-            //WHERE name = 'John'
 
             User user = new User();
 
@@ -139,6 +138,29 @@ namespace YelpUI
             txtBoxYelpingSince.Text = user.yelping_since;
 
 
+        }
+
+        private void addFriends(NpgsqlDataReader R)
+        {
+            string userid = R.GetString(0);
+
+            string sqlstr = "SELECT Name, tip_likes, average_stars, yelping_since " +
+                "FROM users " +
+                    "WHERE user_id = '" + userid + "'";
+
+            executeQuery(sqlstr, fillFriendsList);
+
+           
+        } 
+
+        private void fillFriendsList(NpgsqlDataReader R)
+        {
+            var index = dgvFriendsList.Rows.Add();
+            
+            dgvFriendsList.Rows[index].Cells["clmnName"].Value = R.GetString(0);
+            dgvFriendsList.Rows[index].Cells["clmnTotalLikes"].Value = R.GetInt32(1);
+            dgvFriendsList.Rows[index].Cells["clmnAvgStars"].Value = R.GetDouble(2);
+            dgvFriendsList.Rows[index].Cells["clmnYelpSince"].Value = R.GetString(3);
         }
 
         private void lstState_SelectedIndexChanged(object sender, EventArgs e)
@@ -195,6 +217,8 @@ namespace YelpUI
 
         private void btnSearchBusiness_Click(object sender, EventArgs e)
         {
+
+            mapUserControl1.Map.Children.Clear();
             StringBuilder query = new StringBuilder();
             dgvSearchResults.Rows.Clear();
             dgvSearchResults.Refresh();
@@ -204,8 +228,9 @@ namespace YelpUI
             }
             else
             {
-                string sqlstr = "SELECT DISTINCT business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id " +
-                                "FROM BusinessCategories bc, Business b " +
+                //string sqlstr = "SELECT distinct business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id, longitude, latitude " +
+                string sqlstr = "SELECT distinct b.business_id " +
+                "FROM BusinessCategories bc, Business b " +
                                 "WHERE bc.business_id = b.business_id AND b.state = '" +
                                 lstState.SelectedItem.ToString() +
                                 "' AND b.city = '" +
@@ -232,18 +257,210 @@ namespace YelpUI
                         }
                     }
                     string endSqlstr = ") GROUP BY business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id " +
-                        "HAVING count(*) = " + categoryCount.ToString() + ";";
+                        "HAVING count(*) = " + categoryCount.ToString();
 
                     query.Append(endSqlstr);
                 }
-                else
+
+                if (checkBoxCreditCard.CheckState == CheckState.Checked)
                 {
-                    query.Append(";");
+                    query.Insert(0, "Select distinct b.business_id " +
+                                        "From business b, businessattributes bt " +
+                                            "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'BusinessAcceptsCreditCards' and  attribute_value = 'True'");
                 }
-                executeQuery(query.ToString(), addGridRow);
+
+                if (checkboxReservations.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                                       "From business b, businessattributes bt " +
+                                           "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'RestaurantsReservations' and  attribute_value = 'True'");
+                }
+
+                if (checkboxWheelChair.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                                     "From business b, businessattributes bt " +
+                                         "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'WheelchairAccessible' and  attribute_value = 'True'");
+                }
+
+                if (checkboxOutdoorSeating.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                                  "From business b, businessattributes bt " +
+                                      "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'OutdoorSeating' and  attribute_value = 'True'");
+                }
+
+                if (checkboxKids.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                                        "From business b, businessattributes bt " +
+                                            "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'GoodForKids' and  attribute_value = 'True'");
+                }
+
+                if (checkboxGroups.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                                    "From business b, businessattributes bt " +
+                                        "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'RestaurantsGoodForGroups' and  attribute_value = 'True'");
+                }
+
+                if (checkBoxDelivery.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                                   "From business b, businessattributes bt " +
+                                       "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'RestaurantsDelivery' and  attribute_value = 'True'");
+                }
+
+                if (checkBoxTakeOut.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                                   "From business b, businessattributes bt " +
+                                       "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'RestaurantsTakeOut' and  attribute_value = 'True'");
+                }
+
+                if (checkBoxWifi.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                                  "From business b, businessattributes bt " +
+                                      "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'WiFi' and  attribute_value = 'free'");
+                }
+
+
+                if (checkBoxBikeParking.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'BikeParking' and  attribute_value = 'True'");
+                }
+
+                if (checkboxprice1.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'RestaurantsPriceRange2' and  attribute_value = '1'");
+                }
+
+                if (checkBoxprice2.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'RestaurantsPriceRange2' and  attribute_value = '2'");
+                }
+
+                if (checkBoxprice3.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'RestaurantsPriceRange2' and  attribute_value = '3'");
+                }
+
+                if (checkBoxprice4.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'RestaurantsPriceRange2' and  attribute_value = '4'");
+                }
+
+                if (checkBoxbreakfest.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'GoodForMeal_breakfast' and  attribute_value = 'True'");
+                }
+
+                if (checkBoxLunch.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'GoodForMeal_lunch' and  attribute_value = 'True'");
+                }
+
+                if (checkBoxBrunch.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'GoodForMeal_brunch' and  attribute_value = 'True'");
+                }
+
+                if (checkBoxDinner.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'GoodForMeal_dinner' and  attribute_value = 'True'");
+                }
+
+                if (checkBoxDessert.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'GoodForMeal_dessert' and  attribute_value = 'True'");
+                }
+
+                if (checkBoxLateNight.Checked == true)
+                {
+                    query.Insert(0, "Select distinct b.business_id " +
+                              "From business b, businessattributes bt " +
+                                  "WHERE bt.business_id IN (", 1);
+
+                    query.Append(") and b.business_id = bt.business_id and attribute_name = 'GoodForMeal_latenight' and  attribute_value = 'True'");
+                }
+
+
+
+
+                executeQuery(query.ToString(), preaddGridRow);
             }
 
+        }
 
+
+        private void preaddGridRow(NpgsqlDataReader R) 
+        {
+            string businessid = R.GetString(0);
+
+            string sqlstr = "SELECT distinct business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id, longitude, latitude " +
+                "FROM business b " +
+                    "WHERE b.business_id = '" + businessid + "'";
+
+            executeQuery(sqlstr, addGridRow);
 
         }
 
@@ -283,8 +500,55 @@ namespace YelpUI
 
             dgvSearchResults.RowHeadersVisible = false;
             dgvSearchResults.Columns["clmnBID"].Visible = false;
+
+
+            dgvFriendsList.Columns.Add("clmnName", "Name");
+            dgvFriendsList.Columns.Add("clmnTotalLikes", "Total Likes");
+            dgvFriendsList.Columns.Add("clmnAvgStars", "Average Stars");
+            dgvFriendsList.Columns.Add("clmnYelpSince", "Yelping Since");
+            dgvFriendsList.EnableHeadersVisualStyles = false;
+            dgvFriendsList.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#E6C6FF");
+            foreach (DataGridViewColumn column in dgvFriendsList.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+            dgvFriendsList.Columns["clmnName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvFriendsList.Columns["clmnAvgStars"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvFriendsList.Columns["clmnTotalLikes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvFriendsList.Columns["clmnYelpSince"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dgvFriendsList.RowHeadersVisible = false;
+
+
+            dgvLatestTipsOfFriends.Columns.Add("clmnName", "User Name");
+            dgvLatestTipsOfFriends.Columns.Add("clmnBusiness", "Business");
+            dgvLatestTipsOfFriends.Columns.Add("clmnCity", "City");
+            dgvLatestTipsOfFriends.Columns.Add("clmnText", "Text");
+            dgvLatestTipsOfFriends.Columns.Add("clmnDate", "Date");
+            dgvLatestTipsOfFriends.EnableHeadersVisualStyles = false;
+            dgvLatestTipsOfFriends.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#E6C6FF");
+            foreach (DataGridViewColumn column in dgvLatestTipsOfFriends.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+            dgvLatestTipsOfFriends.Columns["clmnName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvLatestTipsOfFriends.Columns["clmnBusiness"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvLatestTipsOfFriends.Columns["clmnCity"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvLatestTipsOfFriends.Columns["clmnText"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvLatestTipsOfFriends.Columns["clmnDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dgvLatestTipsOfFriends.RowHeadersVisible = false;
         }
 
+        private void addTipsOfFriends(NpgsqlDataReader R)
+        {
+            var index = dgvLatestTipsOfFriends.Rows.Add();
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnName"].Value = R.GetString(0);
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnBusiness"].Value = R.GetString(1);
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnCity"].Value = R.GetString(2);
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnText"].Value = R.GetString(3);
+            dgvLatestTipsOfFriends.Rows[index].Cells["clmnDate"].Value = R.GetDateTime(4);
+        }
         private void addGridRow(NpgsqlDataReader R)
         {
             Business business = new Business()
@@ -295,7 +559,9 @@ namespace YelpUI
                 State = R.GetString(3),
                 NumTips = R.GetInt32(4),
                 NumCheckIns = R.GetInt32(5),
-                BusinessID = R.GetString(6)
+                BusinessID = R.GetString(6),
+                Longitude = R.GetDouble(7),
+                Latitude = R.GetDouble(8)
             };
             var index = dgvSearchResults.Rows.Add();
             dgvSearchResults.Rows[index].Cells["clmnBName"].Value = business.Name;
@@ -305,8 +571,13 @@ namespace YelpUI
             dgvSearchResults.Rows[index].Cells["clmnNumTips"].Value = business.NumTips;
             dgvSearchResults.Rows[index].Cells["clmnNumCheckIns"].Value = business.NumCheckIns;
             dgvSearchResults.Rows[index].Cells["clmnBID"].Value = business.BusinessID;
+            Pushpin pin = new Pushpin();
+            pin.Location = new Location(R.GetDouble(8), R.GetDouble(7));
+            mapUserControl1.Map.Children.Add(pin);
+
         }
         
+
         private void addTip(NpgsqlDataReader R)
         {
             Tip tip = new Tip()
@@ -323,8 +594,11 @@ namespace YelpUI
             form2.dgvTips.Rows[index].Cells["clmnReview"].Value = tip.TextReview;
         }
 
+    
+
         private void btnTip_Click(object sender, EventArgs e)
         {
+
             string businessID = dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString();
             string strsql = "SELECT DISTINCT date, name, number_of_likes, text_review " +
                 "FROM Tips, Business, Users " +
@@ -347,9 +621,49 @@ namespace YelpUI
             form2.dgvTips.Columns["clmnReview"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             
-
             form2.dgvTips.RowHeadersVisible = false;
             executeQuery(strsql, addTip);
+
+
+
+            form2.dgvFriendsTipsBusiness.Columns.Add("clmnName", "User Name");
+            form2.dgvFriendsTipsBusiness.Columns.Add("clmnDate", "Date");
+            form2.dgvFriendsTipsBusiness.Columns.Add("clmnText", "Text");
+
+
+            form2.dgvFriendsTipsBusiness.EnableHeadersVisualStyles = false;
+            form2.dgvFriendsTipsBusiness.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FFDAF5");
+            foreach (DataGridViewColumn column in form2.dgvFriendsTipsBusiness.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+            form2.dgvFriendsTipsBusiness.Columns["clmnText"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+
+            form2.dgvFriendsTipsBusiness.RowHeadersVisible = false;
+
+
+
+            if (lstUsers.SelectedIndex > 0)
+            {
+                string sqlstr4 = "SELECT name, date, text_review " +
+                 "from tips, users, business " +
+                    "where users.user_id in ( select friend_id  " +
+                       "from friends,tips " +
+                        "where friends.user_id = '" + lstUsers.SelectedItem.ToString() + "' and friends.friend_id = tips.user_id " +
+                           "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id and business.business_id = '" + dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString() + "'";
+                executeQuery(sqlstr4, addTipsOfFriendsBusiness);
+            }
+
+        }
+
+        private void addTipsOfFriendsBusiness(NpgsqlDataReader R)
+        {
+            var index = form2.dgvFriendsTipsBusiness.Rows.Add();
+            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnName"].Value = R.GetString(0);
+            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnDate"].Value = R.GetDateTime(1);
+            form2.dgvFriendsTipsBusiness.Rows[index].Cells["clmnText"].Value = R.GetString(2);
+         
         }
 
         private void txtboxCurrentUser_KeyDown(object sender, KeyEventArgs e)
@@ -368,6 +682,10 @@ namespace YelpUI
 
         private void lstUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            dgvFriendsList.Rows.Clear();
+           
+
             string usersID = lstUsers.SelectedItem.ToString();
 
             string sqlstr = "SELECT average_stars, name, number_of_cool_votes,number_of_funny_votes, number_of_useful_votes, tip_count, fan_count,tip_likes, yelping_since " +
@@ -375,32 +693,29 @@ namespace YelpUI
                     "WHERE user_id = '" + usersID + "'";
 
             executeQuery(sqlstr, addUserInfo);
-        }
 
-        private void dgvSearchResults_Click(object sender, EventArgs e)
-        {
-            //string bid = dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString();
-            StringBuilder mapSite = new StringBuilder("https://bing.com/maps");
-            mapSite.Append("?q=");
-          
-            string address = dgvSearchResults.CurrentRow.Cells["clmnAddress"].Value.ToString();
-            string businessName = dgvSearchResults.CurrentRow.Cells["clmnBName"].Value.ToString();
 
-           
-            if (businessName != String.Empty)
-            {
-                mapSite.Append(businessName + ",+");
-            }
-            if (address != String.Empty)
-            {
-                mapSite.Append(address);
-            }
+            string sqlstr2 = "SELECT friend_id " +
+                "FROM friends " +
+                    "WHERE user_id = '" + usersID + "'";
+            executeQuery(sqlstr2, addFriends);
 
-            webBrowser1.Navigate(mapSite.ToString());
+            string sqlstr3 = "SELECT name, business_name, city, text_review, date " +
+                "from tips, users, business " +
+                    "where date in ( select max(date) as mDate " +
+                        "from friends,tips " +
+                         "where friends.user_id = '" + usersID + "' and friends.friend_id = tips.user_id " +
+                            "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id";
+
+            executeQuery(sqlstr3, addTipsOfFriends);
+
+
+            
+
 
         }
 
-
+       
     }
 }
 

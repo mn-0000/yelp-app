@@ -29,6 +29,7 @@ namespace YelpUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -45,10 +46,37 @@ namespace YelpUI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.checkBoxLateNight = new System.Windows.Forms.CheckBox();
+            this.checkBoxDessert = new System.Windows.Forms.CheckBox();
+            this.checkBoxDinner = new System.Windows.Forms.CheckBox();
+            this.checkBoxBrunch = new System.Windows.Forms.CheckBox();
+            this.checkBoxLunch = new System.Windows.Forms.CheckBox();
+            this.checkBoxbreakfest = new System.Windows.Forms.CheckBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBoxprice4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxprice3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxprice2 = new System.Windows.Forms.CheckBox();
+            this.checkboxprice1 = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBoxBikeParking = new System.Windows.Forms.CheckBox();
+            this.checkBoxWifi = new System.Windows.Forms.CheckBox();
+            this.checkBoxTakeOut = new System.Windows.Forms.CheckBox();
+            this.checkBoxDelivery = new System.Windows.Forms.CheckBox();
+            this.checkboxGroups = new System.Windows.Forms.CheckBox();
+            this.checkboxKids = new System.Windows.Forms.CheckBox();
+            this.checkboxOutdoorSeating = new System.Windows.Forms.CheckBox();
+            this.checkboxWheelChair = new System.Windows.Forms.CheckBox();
+            this.checkboxReservations = new System.Windows.Forms.CheckBox();
+            this.checkBoxCreditCard = new System.Windows.Forms.CheckBox();
             this.dgvSearchResults = new System.Windows.Forms.DataGridView();
             this.btnTip = new System.Windows.Forms.Button();
             this.btnSearchBusiness = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dgvLatestTipsOfFriends = new System.Windows.Forms.DataGridView();
+            this.FriendList = new System.Windows.Forms.GroupBox();
+            this.dgvFriendsList = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtboxlatitude = new System.Windows.Forms.TextBox();
             this.txtboxlongitude = new System.Windows.Forms.TextBox();
@@ -76,7 +104,8 @@ namespace YelpUI
             this.lstUsers = new System.Windows.Forms.ListBox();
             this.txtboxCurrentUser = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.mapUserControl1 = new YelpUI.MapUserControl();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -89,8 +118,15 @@ namespace YelpUI
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLatestTipsOfFriends)).BeginInit();
+            this.FriendList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFriendsList)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -106,7 +142,7 @@ namespace YelpUI
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1330, 816);
+            this.tabControl1.Size = new System.Drawing.Size(1347, 816);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage2
@@ -116,7 +152,7 @@ namespace YelpUI
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1322, 783);
+            this.tabPage2.Size = new System.Drawing.Size(1339, 783);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Business Search";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -137,8 +173,8 @@ namespace YelpUI
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.splitContainer1.Size = new System.Drawing.Size(1316, 775);
-            this.splitContainer1.SplitterDistance = 199;
+            this.splitContainer1.Size = new System.Drawing.Size(1333, 775);
+            this.splitContainer1.SplitterDistance = 256;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox2
@@ -207,11 +243,11 @@ namespace YelpUI
             this.groupBox1.Controls.Add(this.lstState);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(14, 10);
+            this.groupBox1.Location = new System.Drawing.Point(0, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(248, 418);
+            this.groupBox1.Size = new System.Drawing.Size(242, 418);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Business Location";
@@ -285,31 +321,282 @@ namespace YelpUI
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox7);
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox6);
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox5);
             this.splitContainer2.Panel1.Controls.Add(this.dgvSearchResults);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.btnTip);
             this.splitContainer2.Panel2.Controls.Add(this.btnSearchBusiness);
-            this.splitContainer2.Size = new System.Drawing.Size(1113, 775);
+            this.splitContainer2.Size = new System.Drawing.Size(1073, 775);
             this.splitContainer2.SplitterDistance = 731;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.checkBoxLateNight);
+            this.groupBox7.Controls.Add(this.checkBoxDessert);
+            this.groupBox7.Controls.Add(this.checkBoxDinner);
+            this.groupBox7.Controls.Add(this.checkBoxBrunch);
+            this.groupBox7.Controls.Add(this.checkBoxLunch);
+            this.groupBox7.Controls.Add(this.checkBoxbreakfest);
+            this.groupBox7.Location = new System.Drawing.Point(928, 117);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(136, 219);
+            this.groupBox7.TabIndex = 3;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Filter by meal:";
+            // 
+            // checkBoxLateNight
+            // 
+            this.checkBoxLateNight.AutoSize = true;
+            this.checkBoxLateNight.Location = new System.Drawing.Point(2, 176);
+            this.checkBoxLateNight.Name = "checkBoxLateNight";
+            this.checkBoxLateNight.Size = new System.Drawing.Size(108, 24);
+            this.checkBoxLateNight.TabIndex = 15;
+            this.checkBoxLateNight.Text = "Late Night";
+            this.checkBoxLateNight.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxDessert
+            // 
+            this.checkBoxDessert.AutoSize = true;
+            this.checkBoxDessert.Location = new System.Drawing.Point(2, 145);
+            this.checkBoxDessert.Name = "checkBoxDessert";
+            this.checkBoxDessert.Size = new System.Drawing.Size(91, 24);
+            this.checkBoxDessert.TabIndex = 14;
+            this.checkBoxDessert.Text = "Dessert";
+            this.checkBoxDessert.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxDinner
+            // 
+            this.checkBoxDinner.AutoSize = true;
+            this.checkBoxDinner.Location = new System.Drawing.Point(2, 115);
+            this.checkBoxDinner.Name = "checkBoxDinner";
+            this.checkBoxDinner.Size = new System.Drawing.Size(82, 24);
+            this.checkBoxDinner.TabIndex = 13;
+            this.checkBoxDinner.Text = "Dinner";
+            this.checkBoxDinner.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBrunch
+            // 
+            this.checkBoxBrunch.AutoSize = true;
+            this.checkBoxBrunch.Location = new System.Drawing.Point(2, 85);
+            this.checkBoxBrunch.Name = "checkBoxBrunch";
+            this.checkBoxBrunch.Size = new System.Drawing.Size(86, 24);
+            this.checkBoxBrunch.TabIndex = 12;
+            this.checkBoxBrunch.Text = "Brunch";
+            this.checkBoxBrunch.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxLunch
+            // 
+            this.checkBoxLunch.AutoSize = true;
+            this.checkBoxLunch.Location = new System.Drawing.Point(2, 55);
+            this.checkBoxLunch.Name = "checkBoxLunch";
+            this.checkBoxLunch.Size = new System.Drawing.Size(79, 24);
+            this.checkBoxLunch.TabIndex = 11;
+            this.checkBoxLunch.Text = "Lunch";
+            this.checkBoxLunch.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxbreakfest
+            // 
+            this.checkBoxbreakfest.AutoSize = true;
+            this.checkBoxbreakfest.Location = new System.Drawing.Point(2, 25);
+            this.checkBoxbreakfest.Name = "checkBoxbreakfest";
+            this.checkBoxbreakfest.Size = new System.Drawing.Size(104, 24);
+            this.checkBoxbreakfest.TabIndex = 10;
+            this.checkBoxbreakfest.Text = "Breakfast";
+            this.checkBoxbreakfest.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.checkBoxprice4);
+            this.groupBox6.Controls.Add(this.checkBoxprice3);
+            this.groupBox6.Controls.Add(this.checkBoxprice2);
+            this.groupBox6.Controls.Add(this.checkboxprice1);
+            this.groupBox6.Location = new System.Drawing.Point(724, 8);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(328, 87);
+            this.groupBox6.TabIndex = 2;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Filter By Price:";
+            // 
+            // checkBoxprice4
+            // 
+            this.checkBoxprice4.AutoSize = true;
+            this.checkBoxprice4.Location = new System.Drawing.Point(112, 56);
+            this.checkBoxprice4.Name = "checkBoxprice4";
+            this.checkBoxprice4.Size = new System.Drawing.Size(71, 24);
+            this.checkBoxprice4.TabIndex = 13;
+            this.checkBoxprice4.Text = "$$$$";
+            this.checkBoxprice4.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxprice3
+            // 
+            this.checkBoxprice3.AutoSize = true;
+            this.checkBoxprice3.Location = new System.Drawing.Point(112, 25);
+            this.checkBoxprice3.Name = "checkBoxprice3";
+            this.checkBoxprice3.Size = new System.Drawing.Size(62, 24);
+            this.checkBoxprice3.TabIndex = 12;
+            this.checkBoxprice3.Text = "$$$";
+            this.checkBoxprice3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxprice2
+            // 
+            this.checkBoxprice2.AutoSize = true;
+            this.checkBoxprice2.Location = new System.Drawing.Point(20, 56);
+            this.checkBoxprice2.Name = "checkBoxprice2";
+            this.checkBoxprice2.Size = new System.Drawing.Size(53, 24);
+            this.checkBoxprice2.TabIndex = 11;
+            this.checkBoxprice2.Text = "$$";
+            this.checkBoxprice2.UseVisualStyleBackColor = true;
+            // 
+            // checkboxprice1
+            // 
+            this.checkboxprice1.AutoSize = true;
+            this.checkboxprice1.Location = new System.Drawing.Point(20, 25);
+            this.checkboxprice1.Name = "checkboxprice1";
+            this.checkboxprice1.Size = new System.Drawing.Size(44, 24);
+            this.checkboxprice1.TabIndex = 10;
+            this.checkboxprice1.Text = "$";
+            this.checkboxprice1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.checkBoxBikeParking);
+            this.groupBox5.Controls.Add(this.checkBoxWifi);
+            this.groupBox5.Controls.Add(this.checkBoxTakeOut);
+            this.groupBox5.Controls.Add(this.checkBoxDelivery);
+            this.groupBox5.Controls.Add(this.checkboxGroups);
+            this.groupBox5.Controls.Add(this.checkboxKids);
+            this.groupBox5.Controls.Add(this.checkboxOutdoorSeating);
+            this.groupBox5.Controls.Add(this.checkboxWheelChair);
+            this.groupBox5.Controls.Add(this.checkboxReservations);
+            this.groupBox5.Controls.Add(this.checkBoxCreditCard);
+            this.groupBox5.Location = new System.Drawing.Point(731, 108);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(191, 342);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Filter by Attributes:";
+            // 
+            // checkBoxBikeParking
+            // 
+            this.checkBoxBikeParking.AutoSize = true;
+            this.checkBoxBikeParking.Location = new System.Drawing.Point(6, 305);
+            this.checkBoxBikeParking.Name = "checkBoxBikeParking";
+            this.checkBoxBikeParking.Size = new System.Drawing.Size(123, 24);
+            this.checkBoxBikeParking.TabIndex = 9;
+            this.checkBoxBikeParking.Text = "Bike Parking";
+            this.checkBoxBikeParking.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxWifi
+            // 
+            this.checkBoxWifi.AutoSize = true;
+            this.checkBoxWifi.Location = new System.Drawing.Point(6, 275);
+            this.checkBoxWifi.Name = "checkBoxWifi";
+            this.checkBoxWifi.Size = new System.Drawing.Size(103, 24);
+            this.checkBoxWifi.TabIndex = 8;
+            this.checkBoxWifi.Text = "Free WiFi";
+            this.checkBoxWifi.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxTakeOut
+            // 
+            this.checkBoxTakeOut.AutoSize = true;
+            this.checkBoxTakeOut.Location = new System.Drawing.Point(6, 245);
+            this.checkBoxTakeOut.Name = "checkBoxTakeOut";
+            this.checkBoxTakeOut.Size = new System.Drawing.Size(100, 24);
+            this.checkBoxTakeOut.TabIndex = 7;
+            this.checkBoxTakeOut.Text = "Take Out";
+            this.checkBoxTakeOut.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxDelivery
+            // 
+            this.checkBoxDelivery.AutoSize = true;
+            this.checkBoxDelivery.Location = new System.Drawing.Point(6, 215);
+            this.checkBoxDelivery.Name = "checkBoxDelivery";
+            this.checkBoxDelivery.Size = new System.Drawing.Size(90, 24);
+            this.checkBoxDelivery.TabIndex = 6;
+            this.checkBoxDelivery.Text = "Delivery";
+            this.checkBoxDelivery.UseVisualStyleBackColor = true;
+            // 
+            // checkboxGroups
+            // 
+            this.checkboxGroups.AutoSize = true;
+            this.checkboxGroups.Location = new System.Drawing.Point(6, 185);
+            this.checkboxGroups.Name = "checkboxGroups";
+            this.checkboxGroups.Size = new System.Drawing.Size(151, 24);
+            this.checkboxGroups.TabIndex = 5;
+            this.checkboxGroups.Text = "Good for groups";
+            this.checkboxGroups.UseVisualStyleBackColor = true;
+            // 
+            // checkboxKids
+            // 
+            this.checkboxKids.AutoSize = true;
+            this.checkboxKids.Location = new System.Drawing.Point(6, 155);
+            this.checkboxKids.Name = "checkboxKids";
+            this.checkboxKids.Size = new System.Drawing.Size(130, 24);
+            this.checkboxKids.TabIndex = 4;
+            this.checkboxKids.Text = "Good for kids";
+            this.checkboxKids.UseVisualStyleBackColor = true;
+            // 
+            // checkboxOutdoorSeating
+            // 
+            this.checkboxOutdoorSeating.AutoSize = true;
+            this.checkboxOutdoorSeating.Location = new System.Drawing.Point(6, 125);
+            this.checkboxOutdoorSeating.Name = "checkboxOutdoorSeating";
+            this.checkboxOutdoorSeating.Size = new System.Drawing.Size(152, 24);
+            this.checkboxOutdoorSeating.TabIndex = 3;
+            this.checkboxOutdoorSeating.Text = "Outdoor Seating";
+            this.checkboxOutdoorSeating.UseVisualStyleBackColor = true;
+            // 
+            // checkboxWheelChair
+            // 
+            this.checkboxWheelChair.AutoSize = true;
+            this.checkboxWheelChair.Location = new System.Drawing.Point(6, 95);
+            this.checkboxWheelChair.Name = "checkboxWheelChair";
+            this.checkboxWheelChair.Size = new System.Drawing.Size(192, 24);
+            this.checkboxWheelChair.TabIndex = 2;
+            this.checkboxWheelChair.Text = "Wheelchair accessible";
+            this.checkboxWheelChair.UseVisualStyleBackColor = true;
+            // 
+            // checkboxReservations
+            // 
+            this.checkboxReservations.AutoSize = true;
+            this.checkboxReservations.Location = new System.Drawing.Point(6, 65);
+            this.checkboxReservations.Name = "checkboxReservations";
+            this.checkboxReservations.Size = new System.Drawing.Size(168, 24);
+            this.checkboxReservations.TabIndex = 1;
+            this.checkboxReservations.Text = "Takes reservations";
+            this.checkboxReservations.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxCreditCard
+            // 
+            this.checkBoxCreditCard.AutoSize = true;
+            this.checkBoxCreditCard.Location = new System.Drawing.Point(6, 35);
+            this.checkBoxCreditCard.Name = "checkBoxCreditCard";
+            this.checkBoxCreditCard.Size = new System.Drawing.Size(185, 24);
+            this.checkBoxCreditCard.TabIndex = 0;
+            this.checkBoxCreditCard.Text = "Accepts Credit Cards";
+            this.checkBoxCreditCard.UseVisualStyleBackColor = true;
+            // 
             // dgvSearchResults
             // 
             this.dgvSearchResults.AllowUserToAddRows = false;
+            this.dgvSearchResults.AllowUserToResizeRows = false;
+            this.dgvSearchResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSearchResults.Location = new System.Drawing.Point(0, 0);
+            this.dgvSearchResults.Location = new System.Drawing.Point(0, 4);
             this.dgvSearchResults.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvSearchResults.Name = "dgvSearchResults";
             this.dgvSearchResults.RowHeadersWidth = 51;
             this.dgvSearchResults.RowTemplate.Height = 24;
             this.dgvSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSearchResults.Size = new System.Drawing.Size(1113, 731);
+            this.dgvSearchResults.Size = new System.Drawing.Size(716, 433);
             this.dgvSearchResults.TabIndex = 0;
-            this.dgvSearchResults.Click += new System.EventHandler(this.dgvSearchResults_Click);
             // 
             // btnTip
             // 
@@ -337,14 +624,65 @@ namespace YelpUI
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox8);
+            this.tabPage1.Controls.Add(this.FriendList);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1322, 783);
+            this.tabPage1.Size = new System.Drawing.Size(1339, 783);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "User Information";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dgvLatestTipsOfFriends);
+            this.groupBox8.Location = new System.Drawing.Point(667, 21);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(664, 754);
+            this.groupBox8.TabIndex = 3;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Latest tips of my friends?";
+            // 
+            // dgvLatestTipsOfFriends
+            // 
+            this.dgvLatestTipsOfFriends.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvLatestTipsOfFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLatestTipsOfFriends.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLatestTipsOfFriends.Location = new System.Drawing.Point(6, 25);
+            this.dgvLatestTipsOfFriends.Name = "dgvLatestTipsOfFriends";
+            this.dgvLatestTipsOfFriends.RowHeadersWidth = 62;
+            this.dgvLatestTipsOfFriends.RowTemplate.Height = 28;
+            this.dgvLatestTipsOfFriends.Size = new System.Drawing.Size(652, 723);
+            this.dgvLatestTipsOfFriends.TabIndex = 0;
+            // 
+            // FriendList
+            // 
+            this.FriendList.Controls.Add(this.dgvFriendsList);
+            this.FriendList.Location = new System.Drawing.Point(10, 407);
+            this.FriendList.Name = "FriendList";
+            this.FriendList.Size = new System.Drawing.Size(651, 368);
+            this.FriendList.TabIndex = 2;
+            this.FriendList.TabStop = false;
+            this.FriendList.Text = "Friends List";
+            // 
+            // dgvFriendsList
+            // 
+            this.dgvFriendsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFriendsList.Location = new System.Drawing.Point(6, 25);
+            this.dgvFriendsList.Name = "dgvFriendsList";
+            this.dgvFriendsList.RowHeadersWidth = 62;
+            this.dgvFriendsList.RowTemplate.Height = 28;
+            this.dgvFriendsList.Size = new System.Drawing.Size(639, 348);
+            this.dgvFriendsList.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -561,7 +899,7 @@ namespace YelpUI
             this.groupBox3.Controls.Add(this.txtboxCurrentUser);
             this.groupBox3.Location = new System.Drawing.Point(8, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(208, 349);
+            this.groupBox3.Size = new System.Drawing.Size(208, 393);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Set Current User";
@@ -572,7 +910,7 @@ namespace YelpUI
             this.lstUsers.ItemHeight = 20;
             this.lstUsers.Location = new System.Drawing.Point(6, 67);
             this.lstUsers.Name = "lstUsers";
-            this.lstUsers.Size = new System.Drawing.Size(185, 264);
+            this.lstUsers.Size = new System.Drawing.Size(196, 304);
             this.lstUsers.TabIndex = 23;
             this.lstUsers.SelectedIndexChanged += new System.EventHandler(this.lstUsers_SelectedIndexChanged);
             // 
@@ -587,27 +925,27 @@ namespace YelpUI
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage3.Controls.Add(this.webBrowser1);
+            this.tabPage3.Controls.Add(this.elementHost1);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1322, 783);
+            this.tabPage3.Size = new System.Drawing.Size(1339, 783);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Map";
             // 
-            // webBrowser1
+            // elementHost1
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1322, 783);
-            this.webBrowser1.TabIndex = 0;
+            this.elementHost1.Location = new System.Drawing.Point(0, 0);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(1319, 775);
+            this.elementHost1.TabIndex = 0;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.mapUserControl1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 816);
+            this.ClientSize = new System.Drawing.Size(1347, 816);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -628,8 +966,18 @@ namespace YelpUI
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
             this.tabPage1.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLatestTipsOfFriends)).EndInit();
+            this.FriendList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFriendsList)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -685,10 +1033,38 @@ namespace YelpUI
         private System.Windows.Forms.TextBox txtboxlongitude;
         private System.Windows.Forms.TextBox txtBoxTipLikes;
         private System.Windows.Forms.TextBox txtBoxTipCount;
-        private System.Windows.Forms.ListBox lstUsers;
         private System.Windows.Forms.TextBox txtboxCurrentUser;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private MapUserControl mapUserControl1;
+        private System.Windows.Forms.GroupBox FriendList;
+        private System.Windows.Forms.DataGridView dgvFriendsList;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox checkBoxBikeParking;
+        private System.Windows.Forms.CheckBox checkBoxWifi;
+        private System.Windows.Forms.CheckBox checkBoxTakeOut;
+        private System.Windows.Forms.CheckBox checkBoxDelivery;
+        private System.Windows.Forms.CheckBox checkboxGroups;
+        private System.Windows.Forms.CheckBox checkboxKids;
+        private System.Windows.Forms.CheckBox checkboxOutdoorSeating;
+        private System.Windows.Forms.CheckBox checkboxWheelChair;
+        private System.Windows.Forms.CheckBox checkboxReservations;
+        private System.Windows.Forms.CheckBox checkBoxCreditCard;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox checkBoxprice4;
+        private System.Windows.Forms.CheckBox checkBoxprice3;
+        private System.Windows.Forms.CheckBox checkBoxprice2;
+        private System.Windows.Forms.CheckBox checkboxprice1;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.CheckBox checkBoxLateNight;
+        private System.Windows.Forms.CheckBox checkBoxDessert;
+        private System.Windows.Forms.CheckBox checkBoxDinner;
+        private System.Windows.Forms.CheckBox checkBoxBrunch;
+        private System.Windows.Forms.CheckBox checkBoxLunch;
+        private System.Windows.Forms.CheckBox checkBoxbreakfest;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.DataGridView dgvLatestTipsOfFriends;
+        public System.Windows.Forms.ListBox lstUsers;
     }
 }
 

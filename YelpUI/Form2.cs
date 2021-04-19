@@ -21,10 +21,9 @@ namespace YelpUI
 
             this.form1 = form1;
             InitializeComponent();
-
+          
         }
 
-     
 
         private void txtTip_MouseClick(object sender, MouseEventArgs e)
         {
@@ -90,8 +89,46 @@ namespace YelpUI
                 "FROM Tips, Business, Users " +
                 "WHERE Business.business_id = '" + form1.dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString() + "' AND Business.business_id = Tips.business_id AND Users.user_id = Tips.user_id;";
             form1.executeQuery(strsql, addTip);
+
+         
         }
 
-     
+
+
+        public void executeQuery(string sqlstr, Action<NpgsqlDataReader> myf)
+        {
+            using (var connection = new NpgsqlConnection(buildConnectionString()))
+            {
+                connection.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = connection;
+                    cmd.CommandText = sqlstr;
+                    try
+                    {
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            myf(reader);
+                        }
+                    }
+                    catch (NpgsqlException nex)
+                    {
+                        MessageBox.Show("SQL Error - " + nex.Message.ToString());
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+        }
+
+        public string buildConnectionString()
+        {
+            return "Host = localhost; Username = postgres; Database = Milestone2; password = Leagues69!";
+        }
+
+
     }
 }
