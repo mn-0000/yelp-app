@@ -18,6 +18,16 @@ namespace YelpUI
         public string Address { get; set; }
         public int PostalCode { get; set; }
         public int NumCheckIns { get; set; }
+<<<<<<< HEAD
 
+=======
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
+
+        public void ExecuteQuery()
+        {
+
+        }
+>>>>>>> Refactored several elements in the code
     }
 }
