@@ -920,6 +920,7 @@ namespace YelpUI
             Pushpin pin = new Pushpin();
             pin.Location = new Location(R.GetDouble(8), R.GetDouble(7));
             mapUserControl1.Map.Children.Add(pin);
+            mapUserControl1.Map.SetView(center:pin.Location, zoomLevel:18);
         }
 
         private void addTip(NpgsqlDataReader R)
