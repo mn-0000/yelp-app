@@ -35,8 +35,9 @@ namespace YelpUI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvFriendsTipsBusiness = new System.Windows.Forms.DataGridView();
             this.txtTip = new System.Windows.Forms.TextBox();
-            this.npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
             this.btnLeaveTip = new System.Windows.Forms.Button();
+            this.npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
+            this.btnLikeTip = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,6 +93,7 @@ namespace YelpUI
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btnLikeTip);
             this.splitContainer2.Panel2.Controls.Add(this.btnLeaveTip);
             this.splitContainer2.Size = new System.Drawing.Size(1011, 254);
             this.splitContainer2.SplitterDistance = 843;
@@ -132,13 +134,6 @@ namespace YelpUI
             this.txtTip.Text = "Leave your tip here...";
             this.txtTip.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTip_MouseClick);
             // 
-            // npgsqlDataAdapter1
-            // 
-            this.npgsqlDataAdapter1.DeleteCommand = null;
-            this.npgsqlDataAdapter1.InsertCommand = null;
-            this.npgsqlDataAdapter1.SelectCommand = null;
-            this.npgsqlDataAdapter1.UpdateCommand = null;
-            // 
             // btnLeaveTip
             // 
             this.btnLeaveTip.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -149,6 +144,24 @@ namespace YelpUI
             this.btnLeaveTip.Text = "Leave Tip";
             this.btnLeaveTip.UseVisualStyleBackColor = true;
             this.btnLeaveTip.Click += new System.EventHandler(this.btnLeaveTip_Click);
+            // 
+            // npgsqlDataAdapter1
+            // 
+            this.npgsqlDataAdapter1.DeleteCommand = null;
+            this.npgsqlDataAdapter1.InsertCommand = null;
+            this.npgsqlDataAdapter1.SelectCommand = null;
+            this.npgsqlDataAdapter1.UpdateCommand = null;
+            // 
+            // btnLikeTip
+            // 
+            this.btnLikeTip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLikeTip.Location = new System.Drawing.Point(0, 146);
+            this.btnLikeTip.Name = "btnLikeTip";
+            this.btnLikeTip.Size = new System.Drawing.Size(164, 44);
+            this.btnLikeTip.TabIndex = 2;
+            this.btnLikeTip.Text = "Like Tip";
+            this.btnLikeTip.UseVisualStyleBackColor = true;
+            this.btnLikeTip.Click += new System.EventHandler(this.btnLikeTip_Click);
             // 
             // Form2
             // 
@@ -184,5 +197,6 @@ namespace YelpUI
         private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
         internal System.Windows.Forms.DataGridView dgvFriendsTipsBusiness;
         private System.Windows.Forms.Button btnLeaveTip;
+        private System.Windows.Forms.Button btnLikeTip;
     }
 }

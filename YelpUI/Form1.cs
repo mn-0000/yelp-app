@@ -278,19 +278,24 @@ namespace YelpUI
         private void btnTip_Click(object sender, EventArgs e)
         {
             string businessID = dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString();
-            string strsql = "SELECT DISTINCT date, name, number_of_likes, text_review " +
+            string strsql = "SELECT DISTINCT date, name, number_of_likes, text_review, Business.business_id, Users.user_id " +
                 "FROM Tips, Business, Users " +
                 "WHERE Business.business_id = '" + businessID + "' AND Business.business_id = Tips.business_id AND Users.user_id = Tips.user_id;";
             
             form2 = new Form2(this);
             form2.Show();
 
+            form2.dgvTips.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             form2.dgvTips.Columns.Add("clmnDate", "Date");
             form2.dgvTips.Columns.Add("clmnName", "User Name");
             form2.dgvTips.Columns.Add("clmnNumLikes", "# of Likes");
             form2.dgvTips.Columns.Add("clmnReview", "Tip Content");
+            form2.dgvTips.Columns.Add("clmnBID", "Business ID");
+            form2.dgvTips.Columns.Add("clmnUID", "User ID");
 
             form2.dgvTips.EnableHeadersVisualStyles = false;
+            //form2.dgvTips.Columns["clmnBID"].Visible = false;
+            //form2.dgvTips.Columns["clmnUID"].Visible = false;
             form2.dgvTips.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FFDAF5");
             foreach (DataGridViewColumn column in form2.dgvTips.Columns)
             {
@@ -299,7 +304,7 @@ namespace YelpUI
             form2.dgvTips.Columns["clmnReview"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             form2.dgvTips.RowHeadersVisible = false;
-            SQLQueries.executeQuery(strsql, addTip);
+            SQLQueries.executeQuery(strsql, form2.addTip);
 
             form2.dgvFriendsTipsBusiness.Columns.Add("clmnName", "User Name");
             form2.dgvFriendsTipsBusiness.Columns.Add("clmnDate", "Date");
@@ -490,21 +495,25 @@ namespace YelpUI
             mapUserControl1.Map.SetView(center:pin.Location, zoomLevel:18);
         }
 
-        private void addTip(NpgsqlDataReader R)
-        {
-            Tip tip = new Tip()
-            {
-                Date = R.GetDateTime(0),
-                UserName = R.GetString(1),
-                NumLikes = R.GetInt32(2),
-                TextReview = R.GetString(3),
-            };
-            var index = form2.dgvTips.Rows.Add();
-            form2.dgvTips.Rows[index].Cells["clmnDate"].Value = tip.Date.ToString();
-            form2.dgvTips.Rows[index].Cells["clmnName"].Value = tip.UserName;
-            form2.dgvTips.Rows[index].Cells["clmnNumLikes"].Value = tip.NumLikes.ToString();
-            form2.dgvTips.Rows[index].Cells["clmnReview"].Value = tip.TextReview;
-        }
+        //private void addTip(NpgsqlDataReader R)
+        //{
+        //    Tip tip = new Tip()
+        //    {
+        //        Date = R.GetDateTime(0),
+        //        UserName = R.GetString(1),
+        //        NumLikes = R.GetInt32(2),
+        //        TextReview = R.GetString(3),
+        //        BusinessID = R.GetString(4),
+        //        UserID = R.GetString(5)
+        //    };
+        //    var index = form2.dgvTips.Rows.Add();
+        //    form2.dgvTips.Rows[index].Cells["clmnDate"].Value = tip.Date.ToString();
+        //    form2.dgvTips.Rows[index].Cells["clmnName"].Value = tip.UserName;
+        //    form2.dgvTips.Rows[index].Cells["clmnNumLikes"].Value = tip.NumLikes.ToString();
+        //    form2.dgvTips.Rows[index].Cells["clmnReview"].Value = tip.TextReview;
+        //    form2.dgvTips.Rows[index].Cells["clmnBID"].Value = tip.BusinessID;
+        //    form2.dgvTips.Rows[index].Cells["clmnUID"].Value = tip.UserID;
+        //}
     }
 }
 

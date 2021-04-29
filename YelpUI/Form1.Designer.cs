@@ -31,6 +31,37 @@ namespace YelpUI
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabUser = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dgvLatestTipsOfFriends = new System.Windows.Forms.DataGridView();
+            this.FriendList = new System.Windows.Forms.GroupBox();
+            this.dgvFriendsList = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtboxlatitude = new System.Windows.Forms.TextBox();
+            this.txtboxlongitude = new System.Windows.Forms.TextBox();
+            this.txtBoxTipLikes = new System.Windows.Forms.TextBox();
+            this.txtBoxTipCount = new System.Windows.Forms.TextBox();
+            this.txtBoxUsefulVotes = new System.Windows.Forms.TextBox();
+            this.txtBoxFunnyVotes = new System.Windows.Forms.TextBox();
+            this.txtBoxCoolVotes = new System.Windows.Forms.TextBox();
+            this.txtBoxYelpingSince = new System.Windows.Forms.TextBox();
+            this.txtboxUserStars = new System.Windows.Forms.TextBox();
+            this.txtboxUserName = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lstUsers = new System.Windows.Forms.ListBox();
+            this.txtboxCurrentUser = new System.Windows.Forms.TextBox();
             this.tabBusiness = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -72,41 +103,18 @@ namespace YelpUI
             this.dgvSearchResults = new System.Windows.Forms.DataGridView();
             this.btnTip = new System.Windows.Forms.Button();
             this.btnSearchBusiness = new System.Windows.Forms.Button();
-            this.tabUser = new System.Windows.Forms.TabPage();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.dgvLatestTipsOfFriends = new System.Windows.Forms.DataGridView();
-            this.FriendList = new System.Windows.Forms.GroupBox();
-            this.dgvFriendsList = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtboxlatitude = new System.Windows.Forms.TextBox();
-            this.txtboxlongitude = new System.Windows.Forms.TextBox();
-            this.txtBoxTipLikes = new System.Windows.Forms.TextBox();
-            this.txtBoxTipCount = new System.Windows.Forms.TextBox();
-            this.txtBoxUsefulVotes = new System.Windows.Forms.TextBox();
-            this.txtBoxFunnyVotes = new System.Windows.Forms.TextBox();
-            this.txtBoxCoolVotes = new System.Windows.Forms.TextBox();
-            this.txtBoxYelpingSince = new System.Windows.Forms.TextBox();
-            this.txtboxUserStars = new System.Windows.Forms.TextBox();
-            this.txtboxUserName = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lstUsers = new System.Windows.Forms.ListBox();
-            this.txtboxCurrentUser = new System.Windows.Forms.TextBox();
             this.tabMap = new System.Windows.Forms.TabPage();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.mapUserControl1 = new YelpUI.MapUserControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
+            this.tabUser.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLatestTipsOfFriends)).BeginInit();
+            this.FriendList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFriendsList)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabBusiness.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -122,13 +130,6 @@ namespace YelpUI
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
-            this.tabUser.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLatestTipsOfFriends)).BeginInit();
-            this.FriendList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFriendsList)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tabMap.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,6 +144,330 @@ namespace YelpUI
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1197, 653);
             this.tabControl1.TabIndex = 0;
+            // 
+            // tabUser
+            // 
+            this.tabUser.Controls.Add(this.groupBox8);
+            this.tabUser.Controls.Add(this.FriendList);
+            this.tabUser.Controls.Add(this.groupBox4);
+            this.tabUser.Controls.Add(this.groupBox3);
+            this.tabUser.Location = new System.Drawing.Point(4, 25);
+            this.tabUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabUser.Name = "tabUser";
+            this.tabUser.Size = new System.Drawing.Size(1189, 624);
+            this.tabUser.TabIndex = 2;
+            this.tabUser.Text = "User Information";
+            this.tabUser.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dgvLatestTipsOfFriends);
+            this.groupBox8.Location = new System.Drawing.Point(593, 6);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox8.Size = new System.Drawing.Size(590, 614);
+            this.groupBox8.TabIndex = 3;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Latest tips from my friends";
+            // 
+            // dgvLatestTipsOfFriends
+            // 
+            this.dgvLatestTipsOfFriends.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvLatestTipsOfFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLatestTipsOfFriends.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLatestTipsOfFriends.Location = new System.Drawing.Point(5, 20);
+            this.dgvLatestTipsOfFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvLatestTipsOfFriends.Name = "dgvLatestTipsOfFriends";
+            this.dgvLatestTipsOfFriends.RowHeadersWidth = 62;
+            this.dgvLatestTipsOfFriends.RowTemplate.Height = 28;
+            this.dgvLatestTipsOfFriends.Size = new System.Drawing.Size(580, 594);
+            this.dgvLatestTipsOfFriends.TabIndex = 0;
+            // 
+            // FriendList
+            // 
+            this.FriendList.Controls.Add(this.dgvFriendsList);
+            this.FriendList.Location = new System.Drawing.Point(9, 326);
+            this.FriendList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FriendList.Name = "FriendList";
+            this.FriendList.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FriendList.Size = new System.Drawing.Size(579, 294);
+            this.FriendList.TabIndex = 2;
+            this.FriendList.TabStop = false;
+            this.FriendList.Text = "Friends List";
+            // 
+            // dgvFriendsList
+            // 
+            this.dgvFriendsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFriendsList.Location = new System.Drawing.Point(5, 20);
+            this.dgvFriendsList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvFriendsList.Name = "dgvFriendsList";
+            this.dgvFriendsList.RowHeadersWidth = 62;
+            this.dgvFriendsList.RowTemplate.Height = 28;
+            this.dgvFriendsList.Size = new System.Drawing.Size(568, 278);
+            this.dgvFriendsList.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.txtboxlatitude);
+            this.groupBox4.Controls.Add(this.txtboxlongitude);
+            this.groupBox4.Controls.Add(this.txtBoxTipLikes);
+            this.groupBox4.Controls.Add(this.txtBoxTipCount);
+            this.groupBox4.Controls.Add(this.txtBoxUsefulVotes);
+            this.groupBox4.Controls.Add(this.txtBoxFunnyVotes);
+            this.groupBox4.Controls.Add(this.txtBoxCoolVotes);
+            this.groupBox4.Controls.Add(this.txtBoxYelpingSince);
+            this.groupBox4.Controls.Add(this.txtboxUserStars);
+            this.groupBox4.Controls.Add(this.txtboxUserName);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Location = new System.Drawing.Point(207, 6);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(380, 315);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "User Information";
+            // 
+            // txtboxlatitude
+            // 
+            this.txtboxlatitude.Location = new System.Drawing.Point(134, 274);
+            this.txtboxlatitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtboxlatitude.Name = "txtboxlatitude";
+            this.txtboxlatitude.Size = new System.Drawing.Size(155, 22);
+            this.txtboxlatitude.TabIndex = 21;
+            // 
+            // txtboxlongitude
+            // 
+            this.txtboxlongitude.Location = new System.Drawing.Point(134, 250);
+            this.txtboxlongitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtboxlongitude.Name = "txtboxlongitude";
+            this.txtboxlongitude.Size = new System.Drawing.Size(155, 22);
+            this.txtboxlongitude.TabIndex = 20;
+            // 
+            // txtBoxTipLikes
+            // 
+            this.txtBoxTipLikes.Location = new System.Drawing.Point(134, 194);
+            this.txtBoxTipLikes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBoxTipLikes.Name = "txtBoxTipLikes";
+            this.txtBoxTipLikes.Size = new System.Drawing.Size(52, 22);
+            this.txtBoxTipLikes.TabIndex = 19;
+            // 
+            // txtBoxTipCount
+            // 
+            this.txtBoxTipCount.Location = new System.Drawing.Point(134, 166);
+            this.txtBoxTipCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBoxTipCount.Name = "txtBoxTipCount";
+            this.txtBoxTipCount.Size = new System.Drawing.Size(52, 22);
+            this.txtBoxTipCount.TabIndex = 18;
+            // 
+            // txtBoxUsefulVotes
+            // 
+            this.txtBoxUsefulVotes.Location = new System.Drawing.Point(203, 140);
+            this.txtBoxUsefulVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBoxUsefulVotes.Name = "txtBoxUsefulVotes";
+            this.txtBoxUsefulVotes.Size = new System.Drawing.Size(32, 22);
+            this.txtBoxUsefulVotes.TabIndex = 17;
+            // 
+            // txtBoxFunnyVotes
+            // 
+            this.txtBoxFunnyVotes.Location = new System.Drawing.Point(151, 140);
+            this.txtBoxFunnyVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBoxFunnyVotes.Name = "txtBoxFunnyVotes";
+            this.txtBoxFunnyVotes.Size = new System.Drawing.Size(32, 22);
+            this.txtBoxFunnyVotes.TabIndex = 16;
+            // 
+            // txtBoxCoolVotes
+            // 
+            this.txtBoxCoolVotes.Location = new System.Drawing.Point(107, 140);
+            this.txtBoxCoolVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBoxCoolVotes.Name = "txtBoxCoolVotes";
+            this.txtBoxCoolVotes.Size = new System.Drawing.Size(32, 22);
+            this.txtBoxCoolVotes.TabIndex = 15;
+            // 
+            // txtBoxYelpingSince
+            // 
+            this.txtBoxYelpingSince.Location = new System.Drawing.Point(124, 90);
+            this.txtBoxYelpingSince.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBoxYelpingSince.Name = "txtBoxYelpingSince";
+            this.txtBoxYelpingSince.Size = new System.Drawing.Size(166, 22);
+            this.txtBoxYelpingSince.TabIndex = 14;
+            // 
+            // txtboxUserStars
+            // 
+            this.txtboxUserStars.Location = new System.Drawing.Point(78, 55);
+            this.txtboxUserStars.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtboxUserStars.Name = "txtboxUserStars";
+            this.txtboxUserStars.Size = new System.Drawing.Size(89, 22);
+            this.txtboxUserStars.TabIndex = 13;
+            // 
+            // txtboxUserName
+            // 
+            this.txtboxUserName.Location = new System.Drawing.Point(78, 30);
+            this.txtboxUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtboxUserName.Name = "txtboxUserName";
+            this.txtboxUserName.Size = new System.Drawing.Size(89, 22);
+            this.txtboxUserName.TabIndex = 12;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(63, 253);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 17);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Longitude";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(63, 274);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 17);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Latitude";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(28, 226);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 17);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Location:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(28, 196);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(105, 17);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Total Tip Likes:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(28, 168);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 17);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Tip Count:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(200, 121);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 17);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "useful:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(104, 121);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 17);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "cool:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(148, 121);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 17);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "funny:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(28, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 17);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Votes:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(28, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 17);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Yelping Since: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(28, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 17);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Stars";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(28, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Name";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lstUsers);
+            this.groupBox3.Controls.Add(this.txtboxCurrentUser);
+            this.groupBox3.Location = new System.Drawing.Point(7, 6);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(185, 314);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Set Current User";
+            // 
+            // lstUsers
+            // 
+            this.lstUsers.FormattingEnabled = true;
+            this.lstUsers.ItemHeight = 16;
+            this.lstUsers.Location = new System.Drawing.Point(5, 54);
+            this.lstUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstUsers.Name = "lstUsers";
+            this.lstUsers.Size = new System.Drawing.Size(175, 244);
+            this.lstUsers.TabIndex = 23;
+            this.lstUsers.SelectedIndexChanged += new System.EventHandler(this.lstUsers_SelectedIndexChanged);
+            // 
+            // txtboxCurrentUser
+            // 
+            this.txtboxCurrentUser.Location = new System.Drawing.Point(5, 20);
+            this.txtboxCurrentUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtboxCurrentUser.Name = "txtboxCurrentUser";
+            this.txtboxCurrentUser.Size = new System.Drawing.Size(175, 22);
+            this.txtboxCurrentUser.TabIndex = 22;
+            this.txtboxCurrentUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtboxCurrentUser_KeyDown);
             // 
             // tabBusiness
             // 
@@ -629,329 +954,6 @@ namespace YelpUI
             this.btnSearchBusiness.UseVisualStyleBackColor = true;
             this.btnSearchBusiness.Click += new System.EventHandler(this.btnSearchBusiness_Click);
             // 
-            // tabUser
-            // 
-            this.tabUser.Controls.Add(this.groupBox8);
-            this.tabUser.Controls.Add(this.FriendList);
-            this.tabUser.Controls.Add(this.groupBox4);
-            this.tabUser.Controls.Add(this.groupBox3);
-            this.tabUser.Location = new System.Drawing.Point(4, 25);
-            this.tabUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabUser.Name = "tabUser";
-            this.tabUser.Size = new System.Drawing.Size(1189, 624);
-            this.tabUser.TabIndex = 2;
-            this.tabUser.Text = "User Information";
-            this.tabUser.UseVisualStyleBackColor = true;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.dgvLatestTipsOfFriends);
-            this.groupBox8.Location = new System.Drawing.Point(593, 6);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox8.Size = new System.Drawing.Size(590, 614);
-            this.groupBox8.TabIndex = 3;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Latest tips of my friends?";
-            // 
-            // dgvLatestTipsOfFriends
-            // 
-            this.dgvLatestTipsOfFriends.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvLatestTipsOfFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLatestTipsOfFriends.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvLatestTipsOfFriends.Location = new System.Drawing.Point(5, 20);
-            this.dgvLatestTipsOfFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvLatestTipsOfFriends.Name = "dgvLatestTipsOfFriends";
-            this.dgvLatestTipsOfFriends.RowHeadersWidth = 62;
-            this.dgvLatestTipsOfFriends.RowTemplate.Height = 28;
-            this.dgvLatestTipsOfFriends.Size = new System.Drawing.Size(580, 594);
-            this.dgvLatestTipsOfFriends.TabIndex = 0;
-            // 
-            // FriendList
-            // 
-            this.FriendList.Controls.Add(this.dgvFriendsList);
-            this.FriendList.Location = new System.Drawing.Point(9, 326);
-            this.FriendList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.FriendList.Name = "FriendList";
-            this.FriendList.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.FriendList.Size = new System.Drawing.Size(579, 294);
-            this.FriendList.TabIndex = 2;
-            this.FriendList.TabStop = false;
-            this.FriendList.Text = "Friends List";
-            // 
-            // dgvFriendsList
-            // 
-            this.dgvFriendsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFriendsList.Location = new System.Drawing.Point(5, 20);
-            this.dgvFriendsList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvFriendsList.Name = "dgvFriendsList";
-            this.dgvFriendsList.RowHeadersWidth = 62;
-            this.dgvFriendsList.RowTemplate.Height = 28;
-            this.dgvFriendsList.Size = new System.Drawing.Size(568, 278);
-            this.dgvFriendsList.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txtboxlatitude);
-            this.groupBox4.Controls.Add(this.txtboxlongitude);
-            this.groupBox4.Controls.Add(this.txtBoxTipLikes);
-            this.groupBox4.Controls.Add(this.txtBoxTipCount);
-            this.groupBox4.Controls.Add(this.txtBoxUsefulVotes);
-            this.groupBox4.Controls.Add(this.txtBoxFunnyVotes);
-            this.groupBox4.Controls.Add(this.txtBoxCoolVotes);
-            this.groupBox4.Controls.Add(this.txtBoxYelpingSince);
-            this.groupBox4.Controls.Add(this.txtboxUserStars);
-            this.groupBox4.Controls.Add(this.txtboxUserName);
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Location = new System.Drawing.Point(207, 6);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(380, 315);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "User Information";
-            // 
-            // txtboxlatitude
-            // 
-            this.txtboxlatitude.Location = new System.Drawing.Point(134, 274);
-            this.txtboxlatitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtboxlatitude.Name = "txtboxlatitude";
-            this.txtboxlatitude.Size = new System.Drawing.Size(155, 22);
-            this.txtboxlatitude.TabIndex = 21;
-            // 
-            // txtboxlongitude
-            // 
-            this.txtboxlongitude.Location = new System.Drawing.Point(134, 250);
-            this.txtboxlongitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtboxlongitude.Name = "txtboxlongitude";
-            this.txtboxlongitude.Size = new System.Drawing.Size(155, 22);
-            this.txtboxlongitude.TabIndex = 20;
-            // 
-            // txtBoxTipLikes
-            // 
-            this.txtBoxTipLikes.Location = new System.Drawing.Point(134, 194);
-            this.txtBoxTipLikes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBoxTipLikes.Name = "txtBoxTipLikes";
-            this.txtBoxTipLikes.Size = new System.Drawing.Size(52, 22);
-            this.txtBoxTipLikes.TabIndex = 19;
-            // 
-            // txtBoxTipCount
-            // 
-            this.txtBoxTipCount.Location = new System.Drawing.Point(134, 166);
-            this.txtBoxTipCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBoxTipCount.Name = "txtBoxTipCount";
-            this.txtBoxTipCount.Size = new System.Drawing.Size(52, 22);
-            this.txtBoxTipCount.TabIndex = 18;
-            // 
-            // txtBoxUsefulVotes
-            // 
-            this.txtBoxUsefulVotes.Location = new System.Drawing.Point(203, 140);
-            this.txtBoxUsefulVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBoxUsefulVotes.Name = "txtBoxUsefulVotes";
-            this.txtBoxUsefulVotes.Size = new System.Drawing.Size(32, 22);
-            this.txtBoxUsefulVotes.TabIndex = 17;
-            // 
-            // txtBoxFunnyVotes
-            // 
-            this.txtBoxFunnyVotes.Location = new System.Drawing.Point(154, 140);
-            this.txtBoxFunnyVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBoxFunnyVotes.Name = "txtBoxFunnyVotes";
-            this.txtBoxFunnyVotes.Size = new System.Drawing.Size(32, 22);
-            this.txtBoxFunnyVotes.TabIndex = 16;
-            // 
-            // txtBoxCoolVotes
-            // 
-            this.txtBoxCoolVotes.Location = new System.Drawing.Point(107, 140);
-            this.txtBoxCoolVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBoxCoolVotes.Name = "txtBoxCoolVotes";
-            this.txtBoxCoolVotes.Size = new System.Drawing.Size(32, 22);
-            this.txtBoxCoolVotes.TabIndex = 15;
-            // 
-            // txtBoxYelpingSince
-            // 
-            this.txtBoxYelpingSince.Location = new System.Drawing.Point(124, 90);
-            this.txtBoxYelpingSince.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBoxYelpingSince.Name = "txtBoxYelpingSince";
-            this.txtBoxYelpingSince.Size = new System.Drawing.Size(166, 22);
-            this.txtBoxYelpingSince.TabIndex = 14;
-            // 
-            // txtboxUserStars
-            // 
-            this.txtboxUserStars.Location = new System.Drawing.Point(78, 55);
-            this.txtboxUserStars.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtboxUserStars.Name = "txtboxUserStars";
-            this.txtboxUserStars.Size = new System.Drawing.Size(89, 22);
-            this.txtboxUserStars.TabIndex = 13;
-            // 
-            // txtboxUserName
-            // 
-            this.txtboxUserName.Location = new System.Drawing.Point(78, 30);
-            this.txtboxUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtboxUserName.Name = "txtboxUserName";
-            this.txtboxUserName.Size = new System.Drawing.Size(89, 22);
-            this.txtboxUserName.TabIndex = 12;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(63, 253);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 17);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "Longitude";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(63, 274);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 17);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Latitude";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(28, 226);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 17);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Location:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 196);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 17);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Total Tip Likes:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 168);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(73, 17);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Tip Count:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(199, 122);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 17);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "useful:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(106, 122);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 17);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "cool:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(148, 122);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 17);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "funny:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 122);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 17);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Votes:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 90);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 17);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Yelping Since: ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 58);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 17);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Stars";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Name";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lstUsers);
-            this.groupBox3.Controls.Add(this.txtboxCurrentUser);
-            this.groupBox3.Location = new System.Drawing.Point(7, 6);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(185, 314);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Set Current User";
-            // 
-            // lstUsers
-            // 
-            this.lstUsers.FormattingEnabled = true;
-            this.lstUsers.ItemHeight = 16;
-            this.lstUsers.Location = new System.Drawing.Point(5, 54);
-            this.lstUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstUsers.Name = "lstUsers";
-            this.lstUsers.Size = new System.Drawing.Size(175, 244);
-            this.lstUsers.TabIndex = 23;
-            this.lstUsers.SelectedIndexChanged += new System.EventHandler(this.lstUsers_SelectedIndexChanged);
-            // 
-            // txtboxCurrentUser
-            // 
-            this.txtboxCurrentUser.Location = new System.Drawing.Point(5, 20);
-            this.txtboxCurrentUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtboxCurrentUser.Name = "txtboxCurrentUser";
-            this.txtboxCurrentUser.Size = new System.Drawing.Size(175, 22);
-            this.txtboxCurrentUser.TabIndex = 22;
-            this.txtboxCurrentUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtboxCurrentUser_KeyDown);
-            // 
             // tabMap
             // 
             this.tabMap.BackColor = System.Drawing.Color.Gainsboro;
@@ -973,6 +975,15 @@ namespace YelpUI
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.mapUserControl1;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(297, 248);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 48);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -983,6 +994,15 @@ namespace YelpUI
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
+            this.tabUser.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLatestTipsOfFriends)).EndInit();
+            this.FriendList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFriendsList)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabBusiness.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -1004,15 +1024,6 @@ namespace YelpUI
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
-            this.tabUser.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLatestTipsOfFriends)).EndInit();
-            this.FriendList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFriendsList)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.tabMap.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1096,6 +1107,7 @@ namespace YelpUI
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView dgvLatestTipsOfFriends;
         public System.Windows.Forms.ListBox lstUsers;
+        private System.Windows.Forms.Button button1;
     }
 }
 
