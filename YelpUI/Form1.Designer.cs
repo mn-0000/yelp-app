@@ -29,7 +29,7 @@ namespace YelpUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -37,8 +37,8 @@ namespace YelpUI
             this.FriendList = new System.Windows.Forms.GroupBox();
             this.dgvFriendsList = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtboxlatitude = new System.Windows.Forms.TextBox();
-            this.txtboxlongitude = new System.Windows.Forms.TextBox();
+            this.txtLatitude = new System.Windows.Forms.TextBox();
+            this.txtLongitude = new System.Windows.Forms.TextBox();
             this.txtBoxTipLikes = new System.Windows.Forms.TextBox();
             this.txtBoxTipCount = new System.Windows.Forms.TextBox();
             this.txtBoxUsefulVotes = new System.Windows.Forms.TextBox();
@@ -106,7 +106,9 @@ namespace YelpUI
             this.tabMap = new System.Windows.Forms.TabPage();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.mapUserControl1 = new YelpUI.MapUserControl();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdateLocation = new System.Windows.Forms.Button();
+            this.txtFans = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -175,14 +177,14 @@ namespace YelpUI
             // 
             this.dgvLatestTipsOfFriends.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLatestTipsOfFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLatestTipsOfFriends.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLatestTipsOfFriends.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLatestTipsOfFriends.Location = new System.Drawing.Point(5, 20);
             this.dgvLatestTipsOfFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvLatestTipsOfFriends.Name = "dgvLatestTipsOfFriends";
@@ -216,9 +218,11 @@ namespace YelpUI
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.txtboxlatitude);
-            this.groupBox4.Controls.Add(this.txtboxlongitude);
+            this.groupBox4.Controls.Add(this.txtFans);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.btnUpdateLocation);
+            this.groupBox4.Controls.Add(this.txtLatitude);
+            this.groupBox4.Controls.Add(this.txtLongitude);
             this.groupBox4.Controls.Add(this.txtBoxTipLikes);
             this.groupBox4.Controls.Add(this.txtBoxTipCount);
             this.groupBox4.Controls.Add(this.txtBoxUsefulVotes);
@@ -248,25 +252,25 @@ namespace YelpUI
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "User Information";
             // 
-            // txtboxlatitude
+            // txtLatitude
             // 
-            this.txtboxlatitude.Location = new System.Drawing.Point(134, 274);
-            this.txtboxlatitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtboxlatitude.Name = "txtboxlatitude";
-            this.txtboxlatitude.Size = new System.Drawing.Size(155, 22);
-            this.txtboxlatitude.TabIndex = 21;
+            this.txtLatitude.Location = new System.Drawing.Point(124, 266);
+            this.txtLatitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLatitude.Name = "txtLatitude";
+            this.txtLatitude.Size = new System.Drawing.Size(166, 22);
+            this.txtLatitude.TabIndex = 21;
             // 
-            // txtboxlongitude
+            // txtLongitude
             // 
-            this.txtboxlongitude.Location = new System.Drawing.Point(134, 250);
-            this.txtboxlongitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtboxlongitude.Name = "txtboxlongitude";
-            this.txtboxlongitude.Size = new System.Drawing.Size(155, 22);
-            this.txtboxlongitude.TabIndex = 20;
+            this.txtLongitude.Location = new System.Drawing.Point(124, 242);
+            this.txtLongitude.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLongitude.Name = "txtLongitude";
+            this.txtLongitude.Size = new System.Drawing.Size(166, 22);
+            this.txtLongitude.TabIndex = 20;
             // 
             // txtBoxTipLikes
             // 
-            this.txtBoxTipLikes.Location = new System.Drawing.Point(134, 194);
+            this.txtBoxTipLikes.Location = new System.Drawing.Point(134, 182);
             this.txtBoxTipLikes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxTipLikes.Name = "txtBoxTipLikes";
             this.txtBoxTipLikes.Size = new System.Drawing.Size(52, 22);
@@ -274,7 +278,7 @@ namespace YelpUI
             // 
             // txtBoxTipCount
             // 
-            this.txtBoxTipCount.Location = new System.Drawing.Point(134, 166);
+            this.txtBoxTipCount.Location = new System.Drawing.Point(134, 154);
             this.txtBoxTipCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxTipCount.Name = "txtBoxTipCount";
             this.txtBoxTipCount.Size = new System.Drawing.Size(52, 22);
@@ -282,7 +286,7 @@ namespace YelpUI
             // 
             // txtBoxUsefulVotes
             // 
-            this.txtBoxUsefulVotes.Location = new System.Drawing.Point(203, 140);
+            this.txtBoxUsefulVotes.Location = new System.Drawing.Point(304, 119);
             this.txtBoxUsefulVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxUsefulVotes.Name = "txtBoxUsefulVotes";
             this.txtBoxUsefulVotes.Size = new System.Drawing.Size(32, 22);
@@ -290,7 +294,7 @@ namespace YelpUI
             // 
             // txtBoxFunnyVotes
             // 
-            this.txtBoxFunnyVotes.Location = new System.Drawing.Point(151, 140);
+            this.txtBoxFunnyVotes.Location = new System.Drawing.Point(212, 119);
             this.txtBoxFunnyVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxFunnyVotes.Name = "txtBoxFunnyVotes";
             this.txtBoxFunnyVotes.Size = new System.Drawing.Size(32, 22);
@@ -298,7 +302,7 @@ namespace YelpUI
             // 
             // txtBoxCoolVotes
             // 
-            this.txtBoxCoolVotes.Location = new System.Drawing.Point(107, 140);
+            this.txtBoxCoolVotes.Location = new System.Drawing.Point(124, 119);
             this.txtBoxCoolVotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxCoolVotes.Name = "txtBoxCoolVotes";
             this.txtBoxCoolVotes.Size = new System.Drawing.Size(32, 22);
@@ -314,7 +318,7 @@ namespace YelpUI
             // 
             // txtboxUserStars
             // 
-            this.txtboxUserStars.Location = new System.Drawing.Point(78, 55);
+            this.txtboxUserStars.Location = new System.Drawing.Point(78, 61);
             this.txtboxUserStars.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxUserStars.Name = "txtboxUserStars";
             this.txtboxUserStars.Size = new System.Drawing.Size(89, 22);
@@ -325,31 +329,31 @@ namespace YelpUI
             this.txtboxUserName.Location = new System.Drawing.Point(78, 30);
             this.txtboxUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxUserName.Name = "txtboxUserName";
-            this.txtboxUserName.Size = new System.Drawing.Size(89, 22);
+            this.txtboxUserName.Size = new System.Drawing.Size(212, 22);
             this.txtboxUserName.TabIndex = 12;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(63, 253);
+            this.label15.Location = new System.Drawing.Point(51, 245);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 17);
+            this.label15.Size = new System.Drawing.Size(75, 17);
             this.label15.TabIndex = 11;
-            this.label15.Text = "Longitude";
+            this.label15.Text = "Longitude:";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(63, 274);
+            this.label14.Location = new System.Drawing.Point(51, 266);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 17);
+            this.label14.Size = new System.Drawing.Size(63, 17);
             this.label14.TabIndex = 10;
-            this.label14.Text = "Latitude";
+            this.label14.Text = "Latitude:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(28, 226);
+            this.label13.Location = new System.Drawing.Point(28, 214);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 17);
             this.label13.TabIndex = 9;
@@ -358,7 +362,7 @@ namespace YelpUI
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 196);
+            this.label12.Location = new System.Drawing.Point(28, 184);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 17);
             this.label12.TabIndex = 8;
@@ -367,7 +371,7 @@ namespace YelpUI
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 168);
+            this.label11.Location = new System.Drawing.Point(28, 156);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 17);
             this.label11.TabIndex = 7;
@@ -376,7 +380,7 @@ namespace YelpUI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(200, 121);
+            this.label10.Location = new System.Drawing.Point(251, 122);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 17);
             this.label10.TabIndex = 6;
@@ -385,7 +389,7 @@ namespace YelpUI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(104, 121);
+            this.label9.Location = new System.Drawing.Point(87, 121);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 17);
             this.label9.TabIndex = 5;
@@ -394,7 +398,7 @@ namespace YelpUI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(148, 121);
+            this.label8.Location = new System.Drawing.Point(162, 122);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 17);
             this.label8.TabIndex = 4;
@@ -421,20 +425,20 @@ namespace YelpUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 58);
+            this.label5.Location = new System.Drawing.Point(28, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 17);
+            this.label5.Size = new System.Drawing.Size(45, 17);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Stars";
+            this.label5.Text = "Stars:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(28, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.Size = new System.Drawing.Size(49, 17);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Name";
+            this.label4.Text = "Name:";
             // 
             // groupBox3
             // 
@@ -975,14 +979,32 @@ namespace YelpUI
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.mapUserControl1;
             // 
-            // button1
+            // btnUpdateLocation
             // 
-            this.button1.Location = new System.Drawing.Point(297, 248);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 48);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdateLocation.Location = new System.Drawing.Point(298, 240);
+            this.btnUpdateLocation.Name = "btnUpdateLocation";
+            this.btnUpdateLocation.Size = new System.Drawing.Size(75, 48);
+            this.btnUpdateLocation.TabIndex = 22;
+            this.btnUpdateLocation.Text = "Update";
+            this.btnUpdateLocation.UseVisualStyleBackColor = true;
+            this.btnUpdateLocation.Click += new System.EventHandler(this.btnUpdateLocation_Click);
+            // 
+            // txtFans
+            // 
+            this.txtFans.Location = new System.Drawing.Point(226, 60);
+            this.txtFans.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFans.Name = "txtFans";
+            this.txtFans.Size = new System.Drawing.Size(64, 22);
+            this.txtFans.TabIndex = 24;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(178, 63);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 17);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Fans:";
             // 
             // Form1
             // 
@@ -1071,8 +1093,8 @@ namespace YelpUI
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtboxlatitude;
-        private System.Windows.Forms.TextBox txtboxlongitude;
+        private System.Windows.Forms.TextBox txtLatitude;
+        private System.Windows.Forms.TextBox txtLongitude;
         private System.Windows.Forms.TextBox txtBoxTipLikes;
         private System.Windows.Forms.TextBox txtBoxTipCount;
         private System.Windows.Forms.TextBox txtboxCurrentUser;
@@ -1107,7 +1129,9 @@ namespace YelpUI
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView dgvLatestTipsOfFriends;
         public System.Windows.Forms.ListBox lstUsers;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdateLocation;
+        private System.Windows.Forms.TextBox txtFans;
+        private System.Windows.Forms.Label label16;
     }
 }
 

@@ -294,8 +294,8 @@ namespace YelpUI
             form2.dgvTips.Columns.Add("clmnUID", "User ID");
 
             form2.dgvTips.EnableHeadersVisualStyles = false;
-            //form2.dgvTips.Columns["clmnBID"].Visible = false;
-            //form2.dgvTips.Columns["clmnUID"].Visible = false;
+            form2.dgvTips.Columns["clmnBID"].Visible = false;
+            form2.dgvTips.Columns["clmnUID"].Visible = false;
             form2.dgvTips.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FFDAF5");
             foreach (DataGridViewColumn column in form2.dgvTips.Columns)
             {
@@ -369,6 +369,9 @@ namespace YelpUI
                          "where friends.user_id = '" + userID + "' and friends.friend_id = tips.user_id " +
                             "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id";
             SQLQueries.executeQuery(sqlstr3, addTipsOfFriends);
+
+            string sqlSelectLocation = "SELECT longitude, latitude FROM Users WHERE user_id = '" + lstUsers.SelectedItem.ToString() + "';";
+            SQLQueries.executeQuery(sqlSelectLocation, UpdateLocation);
         }
 
         private void addState(NpgsqlDataReader R)
@@ -416,6 +419,7 @@ namespace YelpUI
             txtBoxFunnyVotes.Text = user.funnyVotes.ToString();
             txtBoxUsefulVotes.Text = user.usefulVotes.ToString();
             txtBoxTipCount.Text = user.tipCount.ToString();
+            txtFans.Text = user.fans.ToString();
             txtBoxTipLikes.Text = user.totalLikes.ToString();
             txtBoxYelpingSince.Text = user.yelping_since;
         }
@@ -495,6 +499,27 @@ namespace YelpUI
             mapUserControl1.Map.SetView(center:pin.Location, zoomLevel:18);
         }
 
+        private void btnUpdateLocation_Click(object sender, EventArgs e)
+        {
+            double test = 0;
+            if (txtLongitude.Text != "" && txtLatitude.Text != "" 
+                && double.TryParse(txtLongitude.Text, out test) && double.TryParse(txtLatitude.Text, out test))
+            {
+                string sqlUpdateLocation = "UPDATE Users " +
+                    "SET longitude = " + txtLongitude.Text + ", latitude = " + txtLatitude.Text + 
+                    "WHERE user_id = '" + lstUsers.SelectedItem.ToString() + "';";
+                SQLQueries.executeQuery(sqlUpdateLocation, null);
+
+                string sqlSelectLocation = "SELECT longitude, latitude FROM Users WHERE user_id = '" + lstUsers.SelectedItem.ToString() + "';";
+                SQLQueries.executeQuery(sqlSelectLocation, UpdateLocation);
+            }
+        }
+
+        private void UpdateLocation(NpgsqlDataReader R)
+        {
+            txtLongitude.Text = R.GetDouble(0).ToString();
+            txtLatitude.Text = R.GetDouble(1).ToString();
+        }
         //private void addTip(NpgsqlDataReader R)
         //{
         //    Tip tip = new Tip()
