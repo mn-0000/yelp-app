@@ -89,5 +89,6 @@ namespace YelpUI
             dgvTips.CurrentRow.Cells["clmnNumLikes"].Value = R.GetInt32(2).ToString();
             dgvTips.Refresh();
         }
+
     }
 }

@@ -29,7 +29,7 @@ namespace YelpUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -37,6 +37,9 @@ namespace YelpUI
             this.FriendList = new System.Windows.Forms.GroupBox();
             this.dgvFriendsList = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtFans = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnUpdateLocation = new System.Windows.Forms.Button();
             this.txtLatitude = new System.Windows.Forms.TextBox();
             this.txtLongitude = new System.Windows.Forms.TextBox();
             this.txtBoxTipLikes = new System.Windows.Forms.TextBox();
@@ -77,6 +80,10 @@ namespace YelpUI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.txtSelectedBusinessHours = new System.Windows.Forms.TextBox();
+            this.txtSelectedBusinessAddress = new System.Windows.Forms.TextBox();
+            this.txtSelectedBusinessName = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.checkBoxLateNight = new System.Windows.Forms.CheckBox();
             this.checkBoxDessert = new System.Windows.Forms.CheckBox();
@@ -101,14 +108,12 @@ namespace YelpUI
             this.checkboxReservations = new System.Windows.Forms.CheckBox();
             this.checkBoxCreditCard = new System.Windows.Forms.CheckBox();
             this.dgvSearchResults = new System.Windows.Forms.DataGridView();
+            this.btnShowCheckins = new System.Windows.Forms.Button();
             this.btnTip = new System.Windows.Forms.Button();
             this.btnSearchBusiness = new System.Windows.Forms.Button();
             this.tabMap = new System.Windows.Forms.TabPage();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.mapUserControl1 = new YelpUI.MapUserControl();
-            this.btnUpdateLocation = new System.Windows.Forms.Button();
-            this.txtFans = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -128,6 +133,7 @@ namespace YelpUI
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -177,14 +183,14 @@ namespace YelpUI
             // 
             this.dgvLatestTipsOfFriends.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLatestTipsOfFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLatestTipsOfFriends.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLatestTipsOfFriends.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLatestTipsOfFriends.Location = new System.Drawing.Point(5, 20);
             this.dgvLatestTipsOfFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvLatestTipsOfFriends.Name = "dgvLatestTipsOfFriends";
@@ -251,6 +257,33 @@ namespace YelpUI
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "User Information";
+            // 
+            // txtFans
+            // 
+            this.txtFans.Location = new System.Drawing.Point(226, 60);
+            this.txtFans.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFans.Name = "txtFans";
+            this.txtFans.Size = new System.Drawing.Size(64, 22);
+            this.txtFans.TabIndex = 24;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(178, 63);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 17);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Fans:";
+            // 
+            // btnUpdateLocation
+            // 
+            this.btnUpdateLocation.Location = new System.Drawing.Point(298, 240);
+            this.btnUpdateLocation.Name = "btnUpdateLocation";
+            this.btnUpdateLocation.Size = new System.Drawing.Size(75, 48);
+            this.btnUpdateLocation.TabIndex = 22;
+            this.btnUpdateLocation.Text = "Update";
+            this.btnUpdateLocation.UseVisualStyleBackColor = true;
+            this.btnUpdateLocation.Click += new System.EventHandler(this.btnUpdateLocation_Click);
             // 
             // txtLatitude
             // 
@@ -500,7 +533,7 @@ namespace YelpUI
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(10);
             this.splitContainer1.Size = new System.Drawing.Size(1183, 618);
-            this.splitContainer1.SplitterDistance = 227;
+            this.splitContainer1.SplitterDistance = 226;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox2
@@ -635,6 +668,7 @@ namespace YelpUI
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox9);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox7);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox6);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox5);
@@ -642,11 +676,48 @@ namespace YelpUI
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btnShowCheckins);
             this.splitContainer2.Panel2.Controls.Add(this.btnTip);
             this.splitContainer2.Panel2.Controls.Add(this.btnSearchBusiness);
-            this.splitContainer2.Size = new System.Drawing.Size(952, 618);
-            this.splitContainer2.SplitterDistance = 582;
+            this.splitContainer2.Size = new System.Drawing.Size(953, 618);
+            this.splitContainer2.SplitterDistance = 581;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.txtSelectedBusinessHours);
+            this.groupBox9.Controls.Add(this.txtSelectedBusinessAddress);
+            this.groupBox9.Controls.Add(this.txtSelectedBusinessName);
+            this.groupBox9.Location = new System.Drawing.Point(0, 467);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(760, 112);
+            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Selected Business";
+            // 
+            // txtSelectedBusinessHours
+            // 
+            this.txtSelectedBusinessHours.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.txtSelectedBusinessHours.Location = new System.Drawing.Point(7, 78);
+            this.txtSelectedBusinessHours.Name = "txtSelectedBusinessHours";
+            this.txtSelectedBusinessHours.Size = new System.Drawing.Size(744, 22);
+            this.txtSelectedBusinessHours.TabIndex = 2;
+            // 
+            // txtSelectedBusinessAddress
+            // 
+            this.txtSelectedBusinessAddress.BackColor = System.Drawing.Color.LightSalmon;
+            this.txtSelectedBusinessAddress.Location = new System.Drawing.Point(7, 50);
+            this.txtSelectedBusinessAddress.Name = "txtSelectedBusinessAddress";
+            this.txtSelectedBusinessAddress.Size = new System.Drawing.Size(744, 22);
+            this.txtSelectedBusinessAddress.TabIndex = 1;
+            // 
+            // txtSelectedBusinessName
+            // 
+            this.txtSelectedBusinessName.BackColor = System.Drawing.Color.Pink;
+            this.txtSelectedBusinessName.Location = new System.Drawing.Point(7, 22);
+            this.txtSelectedBusinessName.Name = "txtSelectedBusinessName";
+            this.txtSelectedBusinessName.Size = new System.Drawing.Size(744, 22);
+            this.txtSelectedBusinessName.TabIndex = 0;
             // 
             // groupBox7
             // 
@@ -806,7 +877,7 @@ namespace YelpUI
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(171, 274);
+            this.groupBox5.Size = new System.Drawing.Size(171, 296);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Filter by Attributes:";
@@ -933,8 +1004,20 @@ namespace YelpUI
             this.dgvSearchResults.RowHeadersWidth = 51;
             this.dgvSearchResults.RowTemplate.Height = 24;
             this.dgvSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSearchResults.Size = new System.Drawing.Size(760, 577);
+            this.dgvSearchResults.Size = new System.Drawing.Size(761, 458);
             this.dgvSearchResults.TabIndex = 0;
+            this.dgvSearchResults.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSearchResults_CellMouseClick);
+            // 
+            // btnShowCheckins
+            // 
+            this.btnShowCheckins.Location = new System.Drawing.Point(317, 0);
+            this.btnShowCheckins.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnShowCheckins.Name = "btnShowCheckins";
+            this.btnShowCheckins.Size = new System.Drawing.Size(148, 31);
+            this.btnShowCheckins.TabIndex = 2;
+            this.btnShowCheckins.Text = "Show Check ins";
+            this.btnShowCheckins.UseVisualStyleBackColor = true;
+            this.btnShowCheckins.Click += new System.EventHandler(this.btnShowCheckins_Click);
             // 
             // btnTip
             // 
@@ -979,33 +1062,6 @@ namespace YelpUI
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.mapUserControl1;
             // 
-            // btnUpdateLocation
-            // 
-            this.btnUpdateLocation.Location = new System.Drawing.Point(298, 240);
-            this.btnUpdateLocation.Name = "btnUpdateLocation";
-            this.btnUpdateLocation.Size = new System.Drawing.Size(75, 48);
-            this.btnUpdateLocation.TabIndex = 22;
-            this.btnUpdateLocation.Text = "Update";
-            this.btnUpdateLocation.UseVisualStyleBackColor = true;
-            this.btnUpdateLocation.Click += new System.EventHandler(this.btnUpdateLocation_Click);
-            // 
-            // txtFans
-            // 
-            this.txtFans.Location = new System.Drawing.Point(226, 60);
-            this.txtFans.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtFans.Name = "txtFans";
-            this.txtFans.Size = new System.Drawing.Size(64, 22);
-            this.txtFans.TabIndex = 24;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(178, 63);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 17);
-            this.label16.TabIndex = 23;
-            this.label16.Text = "Fans:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1039,6 +1095,8 @@ namespace YelpUI
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1132,6 +1190,11 @@ namespace YelpUI
         private System.Windows.Forms.Button btnUpdateLocation;
         private System.Windows.Forms.TextBox txtFans;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnShowCheckins;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TextBox txtSelectedBusinessHours;
+        private System.Windows.Forms.TextBox txtSelectedBusinessAddress;
+        private System.Windows.Forms.TextBox txtSelectedBusinessName;
     }
 }
 
