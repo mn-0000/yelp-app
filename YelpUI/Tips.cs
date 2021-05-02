@@ -12,5 +12,7 @@ namespace YelpUI
         public string UserName { get; set; }
         public int NumLikes { get; set; }
         public string TextReview { get; set; }
+        public string UserID { get; set; }
+        public string BusinessID { get; set; }
     }
 }

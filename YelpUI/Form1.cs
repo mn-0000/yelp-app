@@ -11,13 +11,17 @@ using Npgsql;
 using System.Text.RegularExpressions;
 using System.Xaml;
 using Microsoft.Maps.MapControl.WPF;
+using System.Device.Location;
 
 namespace YelpUI
 {
     public partial class Form1 : Form
     {
         Form2 form2;
-
+        Form3 form3;
+        string queryForSorting;
+        
+        internal int[] checkinsArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         public Form1()
         {
             InitializeComponent();
@@ -98,7 +102,6 @@ namespace YelpUI
 
         private void btnSearchBusiness_Click(object sender, EventArgs e)
         {
-
             mapUserControl1.Map.Children.Clear();
             StringBuilder query = new StringBuilder();
             dgvSearchResults.Rows.Clear();
@@ -132,7 +135,7 @@ namespace YelpUI
                 }
                 if (checkboxReservations.Checked == true)
                 {
-                    query = SQLQueries.AddAttribute(query, "RestaurantReservations", "True");
+                    query = SQLQueries.AddAttribute(query, "RestaurantsReservations", "True");
                 }
                 if (checkboxWheelChair.Checked == true)
                 {
@@ -184,32 +187,32 @@ namespace YelpUI
                 }
                 if (checkBoxbreakfest.Checked == true)
                 {
-                    query = SQLQueries.AddAttribute(query, "GoodForMeal_breakfast", "True");
+                    query = SQLQueries.AddAttribute(query, "breakfast", "True");
                 }
                 if (checkBoxLunch.Checked == true)
                 {
-                    query = SQLQueries.AddAttribute(query, "GoodForMeal_lunch", "True");
+                    query = SQLQueries.AddAttribute(query, "lunch", "True");
                 }
                 if (checkBoxBrunch.Checked == true)
                 {
-                    query = SQLQueries.AddAttribute(query, "GoodForMeal_brunch", "True");
+                    query = SQLQueries.AddAttribute(query, "brunch", "True");
                 }
                 if (checkBoxDinner.Checked == true)
                 {
-                    query = SQLQueries.AddAttribute(query, "GoodForMeal_dinner", "True");
+                    query = SQLQueries.AddAttribute(query, "dinner", "True");
                 }
                 if (checkBoxDessert.Checked == true)
                 {
-                    query = SQLQueries.AddAttribute(query, "GoodForMeal_dessert", "True");
+                    query = SQLQueries.AddAttribute(query, "dessert", "True");
                 }
                 if (checkBoxLateNight.Checked == true)
                 {
-                    query = SQLQueries.AddAttribute(query, "GoodForMeal_latenight", "True");
+                    query = SQLQueries.AddAttribute(query, "latenight", "True");
                 }
 
                 SQLQueries.executeQuery(query.ToString(), preaddGridRow);
+                queryForSorting = query.ToString();
             }
-
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -225,7 +228,9 @@ namespace YelpUI
             dgvSearchResults.Columns.Add("clmnBName", "Business Name");
             dgvSearchResults.Columns.Add("clmnAddress", "Address");
             dgvSearchResults.Columns.Add("clmnCity", "City");
+            dgvSearchResults.Columns.Add("clmnDistance", "Distance (Miles)");
             dgvSearchResults.Columns.Add("clmnState", "State");
+            dgvSearchResults.Columns.Add("clmnStars", "Stars");
             dgvSearchResults.Columns.Add("clmnNumTips", "# of Tips");
             dgvSearchResults.Columns.Add("clmnNumCheckIns", "# of CheckIns");
             dgvSearchResults.Columns.Add("clmnBID", "BusinessID");
@@ -251,8 +256,8 @@ namespace YelpUI
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
             dgvFriendsList.Columns["clmnName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvFriendsList.Columns["clmnAvgStars"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvFriendsList.Columns["clmnTotalLikes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvFriendsList.Columns["clmnAvgStars"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dgvFriendsList.Columns["clmnTotalLikes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             dgvFriendsList.Columns["clmnYelpSince"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvFriendsList.RowHeadersVisible = false;
 
@@ -267,30 +272,35 @@ namespace YelpUI
             {
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
-            dgvLatestTipsOfFriends.Columns["clmnName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvLatestTipsOfFriends.Columns["clmnName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             dgvLatestTipsOfFriends.Columns["clmnBusiness"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvLatestTipsOfFriends.Columns["clmnCity"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvLatestTipsOfFriends.Columns["clmnText"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvLatestTipsOfFriends.Columns["clmnDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvLatestTipsOfFriends.RowHeadersVisible = false;
-        }      
+        }
 
         private void btnTip_Click(object sender, EventArgs e)
         {
             string businessID = dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString();
-            string strsql = "SELECT DISTINCT date, name, number_of_likes, text_review " +
+            string strsql = "SELECT DISTINCT date, name, number_of_likes, text_review, Business.business_id, Users.user_id " +
                 "FROM Tips, Business, Users " +
                 "WHERE Business.business_id = '" + businessID + "' AND Business.business_id = Tips.business_id AND Users.user_id = Tips.user_id;";
-            
+
             form2 = new Form2(this);
             form2.Show();
 
+            form2.dgvTips.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             form2.dgvTips.Columns.Add("clmnDate", "Date");
             form2.dgvTips.Columns.Add("clmnName", "User Name");
             form2.dgvTips.Columns.Add("clmnNumLikes", "# of Likes");
             form2.dgvTips.Columns.Add("clmnReview", "Tip Content");
+            form2.dgvTips.Columns.Add("clmnBID", "Business ID");
+            form2.dgvTips.Columns.Add("clmnUID", "User ID");
 
             form2.dgvTips.EnableHeadersVisualStyles = false;
+            form2.dgvTips.Columns["clmnBID"].Visible = false;
+            form2.dgvTips.Columns["clmnUID"].Visible = false;
             form2.dgvTips.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FFDAF5");
             foreach (DataGridViewColumn column in form2.dgvTips.Columns)
             {
@@ -299,7 +309,7 @@ namespace YelpUI
             form2.dgvTips.Columns["clmnReview"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             form2.dgvTips.RowHeadersVisible = false;
-            SQLQueries.executeQuery(strsql, addTip);
+            SQLQueries.executeQuery(strsql, form2.addTip);
 
             form2.dgvFriendsTipsBusiness.Columns.Add("clmnName", "User Name");
             form2.dgvFriendsTipsBusiness.Columns.Add("clmnDate", "Date");
@@ -324,7 +334,7 @@ namespace YelpUI
                         "where friends.user_id = '" + lstUsers.SelectedItem.ToString() + "' and friends.friend_id = tips.user_id " +
                            "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id and business.business_id = '" + dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString() + "'";
                 SQLQueries.executeQuery(sqlstr2, addTipsOfFriendsBusiness);
-            }           
+            }
         }
 
         private void txtboxCurrentUser_KeyDown(object sender, KeyEventArgs e)
@@ -347,7 +357,7 @@ namespace YelpUI
             dgvFriendsList.Rows.Clear();
             dgvLatestTipsOfFriends.Rows.Clear();
             string userID = lstUsers.SelectedItem.ToString();
-            string sqlstr = "SELECT average_stars, name, number_of_cool_votes,number_of_funny_votes, number_of_useful_votes, tip_count, fan_count,tip_likes, yelping_since " +
+            string sqlstr = "SELECT average_stars, name, number_of_cool_votes,number_of_funny_votes, number_of_useful_votes, tip_count, fan_count,tip_likes, yelping_since, latitude, longitude " +
                 "FROM users " +
                     "WHERE user_id = '" + userID + "'";
             SQLQueries.executeQuery(sqlstr, addUserInfo);
@@ -364,6 +374,9 @@ namespace YelpUI
                          "where friends.user_id = '" + userID + "' and friends.friend_id = tips.user_id " +
                             "group by friend_id ) and tips.user_id = users.user_id and tips.business_id = business.business_id";
             SQLQueries.executeQuery(sqlstr3, addTipsOfFriends);
+
+            string sqlSelectLocation = "SELECT longitude, latitude FROM Users WHERE user_id = '" + lstUsers.SelectedItem.ToString() + "';";
+            SQLQueries.executeQuery(sqlSelectLocation, UpdateLocation);
         }
 
         private void addState(NpgsqlDataReader R)
@@ -404,6 +417,8 @@ namespace YelpUI
             user.fans = R.GetInt32(6);
             user.totalLikes = R.GetInt32(7);
             user.yelping_since = R.GetString(8);
+            user.latitude = R.GetDouble(9);
+            user.longitude = R.GetDouble(10);
 
             txtboxUserStars.Text = user.avg_stars.ToString();
             txtboxUserName.Text = user.name;
@@ -411,8 +426,11 @@ namespace YelpUI
             txtBoxFunnyVotes.Text = user.funnyVotes.ToString();
             txtBoxUsefulVotes.Text = user.usefulVotes.ToString();
             txtBoxTipCount.Text = user.tipCount.ToString();
+            txtFans.Text = user.fans.ToString();
             txtBoxTipLikes.Text = user.totalLikes.ToString();
             txtBoxYelpingSince.Text = user.yelping_since;
+            txtLatitude.Text = user.latitude.ToString();
+            txtLongitude.Text = user.longitude.ToString();
         }
 
         private void addFriends(NpgsqlDataReader R)
@@ -431,7 +449,7 @@ namespace YelpUI
             dgvFriendsList.Rows[index].Cells["clmnName"].Value = R.GetString(0);
             dgvFriendsList.Rows[index].Cells["clmnTotalLikes"].Value = R.GetInt32(1);
             dgvFriendsList.Rows[index].Cells["clmnAvgStars"].Value = R.GetDouble(2);
-            dgvFriendsList.Rows[index].Cells["clmnYelpSince"].Value = R.GetString(3);
+            dgvFriendsList.Rows[index].Cells["clmnYelpSince"].Value = DateTime.Parse(R.GetString(3)).ToString("M/d/yyyy h:mm:ss tt");
         }
 
         private void addTipsOfFriendsBusiness(NpgsqlDataReader R)
@@ -455,7 +473,7 @@ namespace YelpUI
         private void preaddGridRow(NpgsqlDataReader R)
         {
             string businessid = R.GetString(0);
-            string args = "business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id, longitude, latitude";
+            string args = "business_name, address, city, state, total_number_of_tips, total_number_of_checkins, b.business_id, longitude, latitude, stars";
             string tables = "business b";
             string conditions = "b.business_id = '" + businessid + "'";
             string sqlstr = SQLQueries.CreateBaseSelectQuery(args, tables, conditions);
@@ -474,37 +492,146 @@ namespace YelpUI
                 NumCheckIns = R.GetInt32(5),
                 BusinessID = R.GetString(6),
                 Longitude = R.GetDouble(7),
-                Latitude = R.GetDouble(8)
+                Latitude = R.GetDouble(8),
+                Stars = R.GetDouble(9)
             };
+
+            var startCoord = new GeoCoordinate(Convert.ToDouble(txtLatitude.Text), Convert.ToDouble(txtLongitude.Text));
+            var endCoord = new GeoCoordinate(business.Latitude, business.Longitude);
+
+
+            double distance = startCoord.GetDistanceTo(endCoord);
+            //Convert to miles
+            double miles = distance / 1609;
+
+            double milesrounded = Math.Round(miles, 2);
+
             var index = dgvSearchResults.Rows.Add();
             dgvSearchResults.Rows[index].Cells["clmnBName"].Value = business.Name;
             dgvSearchResults.Rows[index].Cells["clmnAddress"].Value = business.Address;
             dgvSearchResults.Rows[index].Cells["clmnCity"].Value = business.City;
+            dgvSearchResults.Rows[index].Cells["clmnDistance"].Value = milesrounded;
             dgvSearchResults.Rows[index].Cells["clmnState"].Value = business.State;
             dgvSearchResults.Rows[index].Cells["clmnNumTips"].Value = business.NumTips;
             dgvSearchResults.Rows[index].Cells["clmnNumCheckIns"].Value = business.NumCheckIns;
             dgvSearchResults.Rows[index].Cells["clmnBID"].Value = business.BusinessID;
+            dgvSearchResults.Rows[index].Cells["clmnStars"].Value = business.Stars;
             Pushpin pin = new Pushpin();
             pin.Location = new Location(R.GetDouble(8), R.GetDouble(7));
             mapUserControl1.Map.Children.Add(pin);
-            mapUserControl1.Map.SetView(center:pin.Location, zoomLevel:18);
+            mapUserControl1.Map.SetView(center: pin.Location, zoomLevel: 18);
+
         }
 
-        private void addTip(NpgsqlDataReader R)
+        private void btnUpdateLocation_Click(object sender, EventArgs e)
         {
-            Tip tip = new Tip()
+            double test = 0;
+            if (txtLongitude.Text != "" && txtLatitude.Text != ""
+                && double.TryParse(txtLongitude.Text, out test) && double.TryParse(txtLatitude.Text, out test))
             {
-                Date = R.GetDateTime(0),
-                UserName = R.GetString(1),
-                NumLikes = R.GetInt32(2),
-                TextReview = R.GetString(3),
-            };
-            var index = form2.dgvTips.Rows.Add();
-            form2.dgvTips.Rows[index].Cells["clmnDate"].Value = tip.Date.ToString();
-            form2.dgvTips.Rows[index].Cells["clmnName"].Value = tip.UserName;
-            form2.dgvTips.Rows[index].Cells["clmnNumLikes"].Value = tip.NumLikes.ToString();
-            form2.dgvTips.Rows[index].Cells["clmnReview"].Value = tip.TextReview;
+                string sqlUpdateLocation = "UPDATE Users " +
+                    "SET longitude = " + txtLongitude.Text + ", latitude = " + txtLatitude.Text +
+                    "WHERE user_id = '" + lstUsers.SelectedItem.ToString() + "';";
+                SQLQueries.executeQuery(sqlUpdateLocation, null);
+
+                string sqlSelectLocation = "SELECT longitude, latitude FROM Users WHERE user_id = '" + lstUsers.SelectedItem.ToString() + "';";
+                SQLQueries.executeQuery(sqlSelectLocation, UpdateLocation);
+            }
         }
+
+        private void UpdateLocation(NpgsqlDataReader R)
+        {
+            txtLongitude.Text = R.GetDouble(0).ToString();
+            txtLatitude.Text = R.GetDouble(1).ToString();
+        }
+
+
+        internal void addToChartArray(NpgsqlDataReader R)
+        {
+            checkinsArray[R.GetInt32(1) - 1] = R.GetInt32(0);
+        }
+
+        private string convertIntToMonth(int month)
+        {
+            switch (month)
+            {
+                case 1:
+                    return "Jan";
+                case 2:
+                    return "Feb";
+                case 3:
+                    return "Mar";
+                case 4:
+                    return "Apr";
+                case 5:
+                    return "May";
+                case 6:
+                    return "Jun";
+                case 7:
+                    return "Jul";
+                case 8:
+                    return "Aug";
+                case 9:
+                    return "Sep";
+                case 10:
+                    return "Oct";
+                case 11:
+                    return "Nov";
+                case 12:
+                    return "Dec";
+            }
+            return "error, number not between 1 - 12";
+        }
+
+        private void btnShowCheckins_Click(object sender, EventArgs e)
+        {
+            form3 = new Form3(this);
+            form3.Show();
+
+            string sqlstr = "select count(month) as numCheckins, month from checkins where business_id = '" +
+               dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString() + "' group by month order by month";
+
+            for (int i = 0; i < 12; i++)
+            {
+                checkinsArray[i] = 0;
+            }
+            SQLQueries.executeQuery(sqlstr, addToChartArray);
+
+            populateChart();
+        }
+
+        internal void populateChart()
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                form3.chartCheckIns.Series["Number Of Check ins"].Points.AddXY(convertIntToMonth(i + 1), checkinsArray[i]);
+            }
+        }
+
+        private void dgvSearchResults_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            txtSelectedBusinessName.Clear();
+            txtSelectedBusinessAddress.Clear();
+            if (dgvSearchResults.CurrentRow.Index > -1)
+            {
+                txtSelectedBusinessName.Text = dgvSearchResults.CurrentRow.Cells["clmnBName"].Value.ToString();
+                txtSelectedBusinessAddress.Text = dgvSearchResults.CurrentRow.Cells["clmnAddress"].Value.ToString();
+                string today = DateTime.Now.DayOfWeek.ToString();
+                string sqlBusinessHours = "SELECT opening_time, closing_time FROM BusinessHours WHERE business_id = '"
+                    + dgvSearchResults.CurrentRow.Cells["clmnBID"].Value.ToString()
+                    + "' AND day = '" + today + "';";
+                SQLQueries.executeQuery(sqlBusinessHours, SetBusinessHours);
+            }
+        }
+
+        private void SetBusinessHours(NpgsqlDataReader R)
+        {
+            txtSelectedBusinessHours.Clear();
+            string openingTime = DateTime.Parse(R.GetString(0)).ToShortTimeString();
+            string closingTime = DateTime.Parse(R.GetString(1)).ToShortTimeString();
+            txtSelectedBusinessHours.Text = "Today (" + DateTime.Now.DayOfWeek.ToString() + "):\tOpens: " + openingTime + "\tCloses: " + closingTime;
+        }
+
     }
 }
 
